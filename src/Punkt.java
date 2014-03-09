@@ -1,23 +1,23 @@
 
 public class Punkt {
-	private int rea_indeks;
-	private int veeru_indeks;
+	public int x;
+	public int y;
 	
 	public Punkt(int rea_indeks, int veeru_indeks) {
-		this.rea_indeks = rea_indeks;
-		this.veeru_indeks = veeru_indeks;
+		this.x = rea_indeks;
+		this.y = veeru_indeks;
 	}
 	
 	public int getReaIndeks() {
-		return rea_indeks;
+		return x;
 	}
 	public void setReaIndeks(int rea_indeks) {
-		this.rea_indeks = rea_indeks;
+		this.x = rea_indeks;
 	}
 	public int getVeeruIndeks() {
-		return veeru_indeks;
+		return y;
 	}
 	public void setVeeruIndeks(int veeru_indeks) {
-		this.veeru_indeks = veeru_indeks;
+		this.y = veeru_indeks;
 	}
 }

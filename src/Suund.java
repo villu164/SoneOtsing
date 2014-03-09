@@ -1,11 +1,13 @@
+import java.awt.Point;
+
 public class Suund {
 	private int suund;
-	private int[] vektor = {-1,0};
+	private Point vektor = new Point(-1,0);
 	
 	public int getSuund() {
 		return suund;
 	}
-	public int[] getVektor() {
+	public Point getVektor() {
 		return vektor;
 	}
 	
@@ -38,12 +40,12 @@ public class Suund {
 		double Nnurk = Math.acos(skalaar / vektori_pikkus(vektor)*vektori_pikkus(Nvektor));
 		return (int)Math.round(Nnurk/nurk);
 	}
-	private int[] keera(int[] alg_vektor, double alpha){
-		int[] lopp_vektor = new int[2];
-		double x = alg_vektor[0];
-		double y = alg_vektor[1];
-		lopp_vektor[0] = (int)Math.round(x*Math.cos(alpha) + y*Math.sin(alpha));
-		lopp_vektor[1] = (int)Math.round(x*Math.sin(alpha) + y*Math.cos(alpha));
+	private Point keera(Point alg_vektor, double alpha){
+		Point lopp_vektor = new Point();
+		double x = alg_vektor.x;
+		double y = alg_vektor.y;
+		lopp_vektor.x = (int)Math.round(x*Math.cos(alpha) + y*Math.sin(alpha));
+		lopp_vektor.y = (int)Math.round(x*Math.sin(alpha) + y*Math.cos(alpha));
 		return lopp_vektor;
 	}
 	
@@ -60,7 +62,7 @@ public class Suund {
 		return suuna_teade[suund];
 	}
 	public String toString(boolean vektoriga){
-		if (vektoriga) return toString() + " Suunavektor=(" + this.vektor[0] + ";" + this.vektor[1] + ")";
+		if (vektoriga) return toString() + " Suunavektor=(" + this.vektor.x + ";" + this.vektor.y + ")";
 		return toString();
 	}
 	
