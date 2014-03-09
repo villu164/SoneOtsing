@@ -6,13 +6,20 @@ public class Maatriks {
 	private int ridu;
 	private int veerge;
 	private char vahe = ' ';
-	private char tyhi = 'X';
+	private char tyhi = '.';
 	
 	public Maatriks(int ridu, int veerge) {
 		this.ridu = ridu;
 		this.veerge = veerge;
 		this.tabel = new char[ridu][veerge];
 		tyhjenda_tabel();
+	}
+	
+	public Maatriks(Maatriks m){
+		this(m.getRidu(),m.getVeerge());
+		for(int i = 0;i<tabel.length;i++)
+			for(int j = 0;j<tabel[i].length;j++)
+				tabel[i][j] = m.getTabel()[i][j];
 	}
 	
 	public void tyhjenda_tabel(){
@@ -44,6 +51,11 @@ public class Maatriks {
 	public int getVeerge() {
 		return veerge;
 	}
-	
+	public char[][] getTabel(){
+		return tabel;
+	}
+	public void setTabel(int x, int y, char c){
+		tabel[x][y] = c;
+	}
 	
 }

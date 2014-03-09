@@ -16,14 +16,20 @@ public class Paiguta {
 		int otsX = punkt.x + vektor.x*sone.length();
 		int otsY = punkt.y + vektor.y*sone.length();
 		Point ots = new Point(otsX,otsY);
-		System.out.println(suund);
-		System.out.println("otsX:" + otsX);
-		System.out.println("otsY:" + otsY);
 		return maatriks.sees(ots);
+	}
+	private Maatriks pluss_yks(String sone, Point punkt, Suund suund){
+		Maatriks lisatud = new Maatriks(maatriks);
+		Point vektor = suund.getVektor();
+		for(int i = 0;i<sone.length();i++){
+			lisatud.setTabel(punkt.x + vektor.x*i, punkt.y + vektor.y*i, sone.charAt(i));
+		}
+		return lisatud;
 	}
 
 	public void pane(String sone, Point punkt, Suund suund){
 		System.out.println(sone + " " + (kasMahub(sone, punkt, suund) ? "Mahub" : "Ei mahu") + "");
+		if (kasMahub(sone, punkt, suund)) System.out.println(pluss_yks(sone, punkt, suund));
 		//kasMahub(sone, punkt, suund);
 	}
 }
