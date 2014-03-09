@@ -18,18 +18,31 @@ public class Paiguta {
 		Point ots = new Point(otsX,otsY);
 		return maatriks.sees(ots);
 	}
-	private Maatriks pluss_yks(String sone, Point punkt, Suund suund){
+	private boolean pluss_yks(String sone, Point punkt, Suund suund){
 		Maatriks lisatud = new Maatriks(maatriks);
 		Point vektor = suund.getVektor();
 		for(int i = 0;i<sone.length();i++){
-			lisatud.setTabel(punkt.x + vektor.x*i, punkt.y + vektor.y*i, sone.charAt(i));
+			int tabelX = punkt.x + vektor.x*i;
+			int tabelY = punkt.y + vektor.y*i;
+			boolean staatus = lisatud.setTabel(tabelX, tabelY, sone.charAt(i));
+			if (!staatus) return false;
 		}
-		return lisatud;
+		maatriks = lisatud;
+		return true;
 	}
 
-	public void pane(String sone, Point punkt, Suund suund){
-		System.out.println(sone + " " + (kasMahub(sone, punkt, suund) ? "Mahub" : "Ei mahu") + "");
-		if (kasMahub(sone, punkt, suund)) System.out.println(pluss_yks(sone, punkt, suund));
-		//kasMahub(sone, punkt, suund);
+	public Maatriks getMaatriks() {
+		return maatriks;
+	}
+
+	public void setMaatriks(Maatriks maatriks) {
+		this.maatriks = maatriks;
+	}
+
+	public boolean pane(String sone, Point punkt, Suund suund){
+		return kasMahub(sone, punkt, suund) && pluss_yks(sone, punkt, suund);
+	}
+	public String toString(){
+		return maatriks.toString();
 	}
 }

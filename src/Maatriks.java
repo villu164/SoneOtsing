@@ -6,7 +6,7 @@ public class Maatriks {
 	private int ridu;
 	private int veerge;
 	private char vahe = ' ';
-	private char tyhi = '.';
+	private char tyhi = '.'; //see tyhi symbol tuleb ka dynaamiliseks teha
 	
 	public Maatriks(int ridu, int veerge) {
 		this.ridu = ridu;
@@ -54,8 +54,12 @@ public class Maatriks {
 	public char[][] getTabel(){
 		return tabel;
 	}
-	public void setTabel(int x, int y, char c){
-		tabel[x][y] = c;
+	public boolean setTabel(int x, int y, char c){
+		if (tabel[x][y] == tyhi) {
+			tabel[x][y] = c;
+			return true;
+		}
+		return false;
 	}
 	
 }
