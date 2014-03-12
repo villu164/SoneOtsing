@@ -1,7 +1,21 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class Loe {
 	static String[] failist(String failinimi){
-		return null;
+		Scanner sc = new Scanner(failinimi);
+		ArrayList<String> sõned= new ArrayList<String>();
+		while (sc.hasNext()) {
+			String sõne = sc.next();
+			sõned.add(sõne);
+		}
+		sc.close();
+		String[] sõna = new String[sõned.size()];
+		sõna = sõned.toArray(sõna);
+		for(String s : sõned)
+		    System.out.println(s);
+		return sõna;
 	}
 	static String[] test(){
 		String[] tagasi = {"hari","kamm","puur","konn"};
