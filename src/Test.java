@@ -1,4 +1,5 @@
 import java.awt.Point;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -8,7 +9,14 @@ public class Test {
 		System.out.println(new Maatriks(3,5));
 		Paiguta p = new Paiguta(40,40);
 		//Point punkt = new Point(5,5);
-		String[] soned = Loe.riigid();
+		//String[] soned = Loe.riigid();
+		String[] soned =null;
+		try {
+			soned = Loe.failist("soned.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(soned));
 		Collections.shuffle(arrayList);
 		String[] segatudSoned = arrayList.toArray(new String[arrayList.size()]);

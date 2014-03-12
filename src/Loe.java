@@ -1,10 +1,12 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Loe {
-	static String[] failist(String failinimi){
-		Scanner sc = new Scanner(failinimi);
+	static String[] failist(String failinimi) throws FileNotFoundException{
+		Scanner sc = new Scanner(new File(failinimi));
 		ArrayList<String> sõned= new ArrayList<String>();
 		while (sc.hasNext()) {
 			String sõne = sc.next();
