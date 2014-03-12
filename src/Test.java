@@ -6,15 +6,20 @@ import java.util.Collections;
 
 public class Test {
 	public static void main(String[] args){
-		System.out.println(new Maatriks(3,5));
-		Paiguta p = new Paiguta(40,40);
+		Paiguta p = new Paiguta(10,10);
 		//Point punkt = new Point(5,5);
 		//String[] soned = Loe.riigid();
 		String[] soned =null;
 		try {
-			soned = Loe.failist("soned.txt");
+			if (args.length == 0) {
+				System.out.println("Tere, olete tulnud ristsõna maailma. Kasutage sõnadega faili andes selle esimeseks argumendiks");
+				soned = Loe.riigid();
+				p = new Paiguta(40,40);
+			}
+			else soned = Loe.failist(args[0]);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(soned));
