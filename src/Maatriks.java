@@ -11,6 +11,9 @@ public class Maatriks {
 	public Maatriks(int ridu, int veerge) {		
 		this.ridu = ridu;
 		this.veerge = veerge;
+		int pikem_serv = Math.max(ridu,veerge);
+		int aste = (int)Math.log10(pikem_serv);
+		vahe = Lahend.tyhiSone(aste+1,' ');
 		this.tabel = new char[ridu][veerge];
 		tyhjenda_tabel();
 	}
@@ -62,23 +65,13 @@ public class Maatriks {
 	public Maatriks clone(){
 		return new Maatriks(this);
 	}
-	public String toString2(){
-		StringBuilder sb = new StringBuilder(ridu*veerge*2);
-		for(char[] rida: tabel) {
-			for(char karakter: rida){
-				sb.append(karakter);
-				sb.append(vahe);
-			}
-			sb.append("\n");
-		}
-		return sb.toString();
-	}
 	public String toString(){
 		StringBuilder sb = new StringBuilder(ridu*veerge*2);
+		
 		sb.append(" \t");
 		for (int j = 0;j<tabel[0].length;j++) {
-			sb.append(j+1);
-			sb.append(vahe);
+			sb.append(String.format("%0" + vahe.length() + "d", j+1));
+			sb.append(" ");
 		}
 		sb.append("\n");
 		sb.append("\n");

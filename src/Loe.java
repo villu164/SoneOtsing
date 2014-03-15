@@ -4,23 +4,43 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 
 public class Loe {
 	static String[] failist(String failinimi) throws FileNotFoundException{
 		Scanner sc = new Scanner(new File(failinimi));
-		ArrayList<String> sõned= new ArrayList<String>();
+		ArrayList<String> soned= new ArrayList<String>();
 		while (sc.hasNext()) {
-			String sõne = sc.next();
-			sõned.add(sõne);
+			String sone = sc.next();
+			soned.add(sone);
 		}
 		sc.close();
-		String[] sõna = new String[sõned.size()];
-		sõna = sõned.toArray(sõna);
-		for(String s : sõned)
-		    System.out.println(s);
-		return sõna;
+		String[] sone = new String[soned.size()];
+		sone = soned.toArray(sone);
+		return sone;
+	}
+	static String[] anna_segatud_soned(String[] args){
+		String[] soned = anna_soned(args);
+		ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(soned));
+		Collections.shuffle(arrayList);
+		return arrayList.toArray(soned);
+	}
+	static String[] anna_soned(String[] args){
+		if (args.length == 0) return riigid();
+		else {
+			for (String s : args) {
+				if (s.toLowerCase().equals("debug") || s.toLowerCase().equals("cheat")) Debug.setDebug(true);
+				try {
+					return failist(s);
+				} catch (Exception e) {
+					continue;
+				}
+			}
+		}
+		return riigid();
 	}
 	static String[] test(){
 		String[] tagasi = {"hari","kamm","puur","konn"};
@@ -55,7 +75,7 @@ public class Loe {
 				return kysiSone();
 			}
 		} catch (IOException e) {
-			System.out.println("Ei sobi! Proovi uuesti.");
+			ei_sobi();
 			return kysiSone();
 		}
 	}
@@ -68,7 +88,7 @@ public class Loe {
 		try {
 			return Integer.parseInt(sone);
 		} catch (Exception e) {
-			System.out.println("Ei sobi! Proovi uuesti.");
+			ei_sobi();
 			return kysiNumber();
 		}
 	}
@@ -76,12 +96,30 @@ public class Loe {
 		System.out.print(s);
 		return kysiNumber();
 	}
+	static int kysiNumberSuuremKuiNull(){
+		String sone = kysiSone();
+		try {
+			int number = Integer.parseInt(sone);
+			if (number > 0) return number;
+			else {
+				ei_sobi();
+				return kysiNumberSuuremKuiNull();
+			}
+		} catch (Exception e) {
+			ei_sobi();
+			return kysiNumberSuuremKuiNull();
+		}
+	}
+	static int kysiNumberSuuremKuiNull(String s){
+		System.out.print(s);
+		return kysiNumberSuuremKuiNull();
+	}
 	static double kysiArv(){
 		String sone = kysiSone();
 		try {
 			return Double.parseDouble(sone);
 		} catch (Exception e) {
-			System.out.println("Ei sobi! Proovi uuesti.");
+			ei_sobi();
 			return kysiArv();
 		}
 	}
@@ -94,7 +132,7 @@ public class Loe {
 		try {
 			return Lahend.parseLahend(sone);
 		} catch (Exception e) {
-			System.out.println("Ei sobi! Proovi uuesti.");
+			ei_sobi();
 			return kysiLahend();
 		}
 	}
@@ -107,16 +145,20 @@ public class Loe {
 		try {
 			if (sone.toLowerCase().equals("e") || sone.toLowerCase().equals("ei")) return false;
 			if (sone.toLowerCase().equals("j") || sone.toLowerCase().equals("jah")) return true;
-			System.out.println("Ei sobi! Proovi uuesti.");
+			ei_sobi();
 			return kysiJahEi();
 		} catch (Exception e) {
-			System.out.println("Ei sobi! Proovi uuesti.");
+			ei_sobi();
 			return kysiJahEi();
 		}
 	}
 	static boolean kysiJahEi(String s){
 		System.out.print(s);
 		return kysiJahEi();
+	}
+	
+	static void ei_sobi(){
+		System.out.println("Ei sobi! Proovi uuesti.");
 	}
 	static void tyhjenda(){
 		int lines = 100;

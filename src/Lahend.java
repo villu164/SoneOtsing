@@ -41,6 +41,11 @@ public class Lahend {
 		Arrays.fill(c, tyhi);
 		return new String(c);
 	}
+	public static String tyhiSone(int pikkus, char tyhi){
+		char[] c = new char[pikkus];
+		Arrays.fill(c, tyhi);
+		return new String(c);
+	}
 		
 	public static Lahend parseLahend(String s){
 		String[] eraldi = s.split(";");

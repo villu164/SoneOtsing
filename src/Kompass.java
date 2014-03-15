@@ -27,7 +27,7 @@ public enum Kompass {
 			{0,-1},
 			{-1,-1}
 	};
-	private String[] suuna_teade = {"P6hi", "Kirre", "Ida", "Kagu", "L6una", "Edel", "L22s", "Loe"};
+	//private String[] suuna_teade = {"P6hi", "Kirre", "Ida", "Kagu", "L6una", "Edel", "L22s", "Loe"};
 	public static String[] suunad = {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
 	private Kompass(int suund) {
 		if (suund == -1) suund = (int)Math.round(Math.random()*7);

@@ -1,12 +1,10 @@
 import java.awt.Point;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Paiguta {
 	private Maatriks maatriks;
-	private ArrayList<Lahend> lahendid2 = new ArrayList<Lahend>();
+	private int min_pikkus = 3;
 	Map<String, Lahend> lahendid = new HashMap<String, Lahend>();
 
 	public Map<String, Lahend> getLahendid() {
@@ -20,16 +18,16 @@ public class Paiguta {
 		return leidub;
 	}
 	
-	public boolean leiaSoned(){
+	public String leiaSoned(){
+		StringBuilder sb = new StringBuilder();
 		boolean on_veel = false;
 		for(Map.Entry<String, Lahend> lahend : lahendid.entrySet()){
 		    if (!lahend.getValue().isLeitud()){
-		    	System.out.print(lahend.getValue() + " ");
+		    	sb.append(lahend.getValue() + ", ");
 		    	on_veel = true;
 		    }
 		}
-		System.out.println();
-		return on_veel;
+		return sb.toString();
 	}
 
 	public Paiguta(int ridu, int veerge) {
@@ -56,6 +54,8 @@ public class Paiguta {
 	}
 
 	public boolean pane(Lahend lahend){
+		if (lahend.getSone().length() < min_pikkus) return false;
+		if (lahendid.containsKey(lahend.getSone().toUpperCase())) return false;
 		Maatriks lisatud = (Maatriks) maatriks.clone();
 		Point varupunkt = (Point) lahend.getPunkt().clone();
 		Point suunapunkt = lahend.getSuund().toPoint();
@@ -87,6 +87,9 @@ public class Paiguta {
 		this.maatriks = maatriks;
 	}
 
+	public void salvesta(){
+		
+	}
 	public String toString(){
 		return maatriks.toString();
 	}
