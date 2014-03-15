@@ -1,5 +1,6 @@
 
 public class Punkt {
+	//obsolete
 	public int x;
 	public int y;
 	
