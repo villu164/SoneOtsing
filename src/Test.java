@@ -37,6 +37,7 @@ public class Test {
 					System.out.println(Kompass.kompass);
 					System.out.println();
 					System.out.println(p);
+					System.out.println("Näiteks 2 rida, 1 veerg, 5 tähte paremale on 2 1 E 5 ning samast kohast diagonaalselt paremale alla on 2 1 SE 5");
 					Lahend lahend = Loe.kysiLahend("Sisesta lahend kujule (RIDA,VEERG,SUUND,PIKKUS): ");
 					Loe.tyhjenda();
 					p.vota(lahend);
