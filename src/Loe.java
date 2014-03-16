@@ -10,16 +10,19 @@ import java.util.Scanner;
 
 
 public class Loe {
+	private static int min_pikkus = 3;
 	static String[] failist(String failinimi) throws FileNotFoundException{
 		Scanner sc = new Scanner(new File(failinimi));
 		ArrayList<String> soned= new ArrayList<String>();
 		while (sc.hasNext()) {
 			String sone = sc.next();
-			soned.add(sone);
+			sone = sone.replaceAll("[\n\t ,.;:-_<>*#&-]+", "");
+			if (sone.length() >= min_pikkus) soned.add(sone);
 		}
 		sc.close();
 		String[] sone = new String[soned.size()];
 		sone = soned.toArray(sone);
+		Kirjuta.teade("Lugesin failist: " + failinimi + " " + sone.length + " s6na");
 		return sone;
 	}
 	static String[] anna_segatud_soned(String[] args){
@@ -58,10 +61,11 @@ public class Loe {
 			System.exit(0);
 			return false;
 		}
-		if (sone.toLowerCase().equals("abi") || sone.toLowerCase().equals("appi") || sone.toLowerCase().equals("")) {
+		if (sone.toLowerCase().equals("abi") || sone.toLowerCase().equals("appi")) {
 			Abi.tekst();
 			return false;
 		}
+		if (sone.toLowerCase().equals("")) System.out.println("Kirjuta abi, kui vajad abi :D");
 		return true;
 	}
 	static String kysiSone(){
@@ -140,21 +144,24 @@ public class Loe {
 		System.out.print(s);
 		return kysiLahend();
 	}
-	static boolean kysiJahEi(){
+	static boolean kysiJahEi(boolean tyhi_vastus){
 		String sone = kysiSone();
 		try {
 			if (sone.toLowerCase().equals("e") || sone.toLowerCase().equals("ei")) return false;
 			if (sone.toLowerCase().equals("j") || sone.toLowerCase().equals("jah")) return true;
-			ei_sobi();
-			return kysiJahEi();
+			return tyhi_vastus;
 		} catch (Exception e) {
 			ei_sobi();
-			return kysiJahEi();
+			return kysiJahEi(tyhi_vastus);
 		}
 	}
 	static boolean kysiJahEi(String s){
 		System.out.print(s);
-		return kysiJahEi();
+		return kysiJahEi(true);
+	}
+	static boolean kysiJahEi(String s,boolean tyhi_vastus){
+		System.out.print(s);
+		return kysiJahEi(tyhi_vastus);
 	}
 	
 	static void ei_sobi(){

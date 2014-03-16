@@ -4,7 +4,6 @@ import java.util.Map;
 
 public class Paiguta {
 	private Maatriks maatriks;
-	private int min_pikkus = 3;
 	Map<String, Lahend> lahendid = new HashMap<String, Lahend>();
 
 	public Map<String, Lahend> getLahendid() {
@@ -54,7 +53,6 @@ public class Paiguta {
 	}
 
 	public boolean pane(Lahend lahend){
-		if (lahend.getSone().length() < min_pikkus) return false;
 		if (lahendid.containsKey(lahend.getSone().toUpperCase())) return false;
 		Maatriks lisatud = (Maatriks) maatriks.clone();
 		Point varupunkt = (Point) lahend.getPunkt().clone();

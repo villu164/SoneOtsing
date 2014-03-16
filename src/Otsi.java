@@ -1,7 +1,7 @@
 import java.awt.Point;
 
-public class Test {
-	
+public class Otsi {
+
 	public static void main(String[] args){
 		Loe.tyhjenda();
 		Abi.tervitustekst();
@@ -9,7 +9,9 @@ public class Test {
 		Paiguta p = null;		
 		String[] soned = Loe.anna_segatud_soned(args);
 		while(uuesti) {
-			p = new Paiguta(Loe.kysiNumberSuuremKuiNull("Sisesta ridu:"),Loe.kysiNumberSuuremKuiNull("Sisesta veerge:"));
+			boolean kysimus_kohanda = Loe.kysiJahEi("Kas soovid täpsustada ridu ja veerge(vaikimisi 10x10)? Jah või Ei(vaikimisi): ",false);
+			if (kysimus_kohanda) p = new Paiguta(Loe.kysiNumberSuuremKuiNull("Sisesta ridu:"),Loe.kysiNumberSuuremKuiNull("Sisesta veerge:"));
+			else p = new Paiguta(10,10);
 			Maatriks m = p.getMaatriks();
 			for (int s = 0;s < soned.length;s++){
 				for(int i = 0;i < m.getRidu();i++){
@@ -48,7 +50,7 @@ public class Test {
 				else{
 					Loe.tyhjenda();
 					Kirjuta.teade("Sinu võit!");
-					boolean kysimus = Loe.kysiJahEi("Kas mängime veel? Jah või Ei: ");
+					boolean kysimus = Loe.kysiJahEi("Kas mängime veel? Jah(vaikimisi) või Ei: ");
 					if (!kysimus) {
 						Abi.lahkumistekst();
 						System.exit(0);
