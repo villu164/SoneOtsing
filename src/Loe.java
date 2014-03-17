@@ -17,7 +17,12 @@ public class Loe {
 		while (sc.hasNext()) {
 			String sone = sc.next();
 <<<<<<< HEAD
+<<<<<<< HEAD
 			soned.add(sone);
+=======
+			sone = sone.replaceAll("[\n\t ,.;:-_<>*#&-]+", "");
+			if (sone.length() >= min_pikkus) soned.add(sone);
+>>>>>>> FETCH_HEAD
 =======
 			sone = sone.replaceAll("[\n\t ,.;:-_<>*#&-]+", "");
 			if (sone.length() >= min_pikkus) soned.add(sone);
@@ -27,6 +32,10 @@ public class Loe {
 		String[] sone = new String[soned.size()];
 		sone = soned.toArray(sone);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		Kirjuta.teade("Lugesin failist: " + failinimi + " " + sone.length + " s6na");
+>>>>>>> FETCH_HEAD
 =======
 		Kirjuta.teade("Lugesin failist: " + failinimi + " " + sone.length + " s6na");
 >>>>>>> FETCH_HEAD
@@ -69,16 +78,22 @@ public class Loe {
 			return false;
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 		if (sone.toLowerCase().equals("abi") || sone.toLowerCase().equals("appi") || sone.toLowerCase().equals("")) {
 			Abi.tekst();
 			return false;
 		}
 =======
+=======
+>>>>>>> FETCH_HEAD
 		if (sone.toLowerCase().equals("abi") || sone.toLowerCase().equals("appi")) {
 			Abi.tekst();
 			return false;
 		}
 		if (sone.toLowerCase().equals("")) System.out.println("Kirjuta abi, kui vajad abi :D");
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 		return true;
 	}
@@ -159,7 +174,11 @@ public class Loe {
 		return kysiLahend();
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	static boolean kysiJahEi(){
+=======
+	static boolean kysiJahEi(boolean tyhi_vastus){
+>>>>>>> FETCH_HEAD
 =======
 	static boolean kysiJahEi(boolean tyhi_vastus){
 >>>>>>> FETCH_HEAD
@@ -168,29 +187,41 @@ public class Loe {
 			if (sone.toLowerCase().equals("e") || sone.toLowerCase().equals("ei")) return false;
 			if (sone.toLowerCase().equals("j") || sone.toLowerCase().equals("jah")) return true;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			ei_sobi();
 			return kysiJahEi();
 		} catch (Exception e) {
 			ei_sobi();
 			return kysiJahEi();
 =======
+=======
+>>>>>>> FETCH_HEAD
 			return tyhi_vastus;
 		} catch (Exception e) {
 			ei_sobi();
 			return kysiJahEi(tyhi_vastus);
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 		}
 	}
 	static boolean kysiJahEi(String s){
 		System.out.print(s);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		return kysiJahEi();
 =======
+=======
+>>>>>>> FETCH_HEAD
 		return kysiJahEi(true);
 	}
 	static boolean kysiJahEi(String s,boolean tyhi_vastus){
 		System.out.print(s);
 		return kysiJahEi(tyhi_vastus);
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 	}
 	
