@@ -5,10 +5,7 @@ import java.util.Map;
 public class Paiguta {
 	private Maatriks maatriks;
 <<<<<<< HEAD
-<<<<<<< HEAD
 	private int min_pikkus = 3;
-=======
->>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
 	Map<String, Lahend> lahendid = new HashMap<String, Lahend>();
@@ -61,10 +58,7 @@ public class Paiguta {
 
 	public boolean pane(Lahend lahend){
 <<<<<<< HEAD
-<<<<<<< HEAD
 		if (lahend.getSone().length() < min_pikkus) return false;
-=======
->>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
 		if (lahendid.containsKey(lahend.getSone().toUpperCase())) return false;
