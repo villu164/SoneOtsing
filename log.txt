@@ -5,3 +5,120 @@
 3	. . . 
 
 TAI, 
+<<<<<<< HEAD
+=======
+ 	1 2 
+
+1	. . 
+2	. . 
+
+
+Sinu võit!
+ 	1 2 
+
+1	. . 
+2	. . 
+
+
+Sinu võit!
+ 	1 2 
+
+1	. . 
+2	. . 
+
+
+Sinu võit!
+ 	1 2 
+
+1	. . 
+
+
+Sinu võit!
+ 	1 2 3 
+
+1	T A I 
+
+TAI, 
+ 	01 02 03 04 05 06 07 08 09 10 
+
+1	K  R  E  E  K  A  B  T  T  B  
+2	S  P  S  R  E  L  E  U  Š  A  
+3	O  A  R  I  N  B  L  V  E  H  
+4	M  N  I  T  Y  A  A  A  H  A  
+5	A  A  L  R  A  A  U  L  H  M  
+6	A  M  A  E  .  N  L  U  I  A  
+7	L  A  N  A  K  I  T  A  V  L  
+8	I  I  K  I  R  A  A  N  O  I  
+9	A  J  A  M  A  I  C  A  .  S  
+10	A  U  S  T  R  A  A  L  I  A  
+
+KENYA, AUSTRAALIA, KREEKA, TŠEHHI, IRAAN, SOMAALIA, SRILANKA, TUVALU, BELAU, ERITREA, LAOS, PANAMA, MALI, BAHAMA, VATIKAN, ALBAANIA, TAI, JAMAICA, 
+ 	01 02 03 04 05 06 07 08 09 10 
+
+1	J  A  M  A  I  C  A  U  M  K  
+2	K  T  O  A  T  A  I  R  O  O  
+3	A  O  S  G  L  .  R  U  N  M  
+4	M  N  A  A  B  T  A  G  G  O  
+5	B  G  M  M  E  E  A  U  O  O  
+6	O  A  B  B  L  E  N  A  O  R  
+7	D  B  I  I  I  S  S  Y  L  I  
+8	Ž  O  I  A  Z  T  .  O  I  D  
+9	A  N  K  .  E  I  T  I  A  H  
+10	D  J  I  B  O  U  T  I  .  L  
+
+HAITI, GAMBIA, BELIZE, IRAAN, MOSAMBIIK, KAMBODŽA, DJIBOUTI, KOMOORID, LAOS, MONGOOLIA, EESTI, GABON, TAI, MALTA, JAMAICA, TONGA, URUGUAY, 
+ 	01 02 03 
+
+1	G  M  T  
+2	U  O  A  
+3	I  L  D  
+4	N  D  Ž  
+5	E  O  I  
+6	A  V  K  
+7	B  A  I  
+8	I  B  S  
+9	S  O  T  
+10	S  T  A  
+11	A  S  N  
+12	U  W  S  
+13	G  A  A  
+14	A  N  A  
+15	M  A  L  
+16	B  R  O  
+17	I  U  M  
+18	A  M  O  
+19	H  E  N  
+20	I  E  I  
+21	S  N  M  
+22	P  I  O  
+23	A  A  N  
+24	A  L  T  
+25	N  Õ  E  
+26	I  U  N  
+27	A  N  E  
+28	I  A  G  
+29	S  A  R  
+30	L  A  O  
+31	A  F  M  
+32	N  R  A  
+33	D  I  L  
+34	G  K  A  
+35	R  A  W  
+36	U  V  I  
+37	U  A  K  
+38	S  B  O  
+39	I  A  N  
+40	A  R  G  
+41	K  I  O  
+42	U  I  D  
+43	U  K  V  
+44	B  A  P  
+45	A  N  A  
+46	T  T  N  
+47	A  I  A  
+48	A  G  M  
+49	N  U  A  
+50	I  A  T  
+
+SAALOMONI, GUINEABISSAU, KUUBA, KONGODV, HISPAANIA, LÕUNAAAFRIKAVABARIIK, GAMBIA, MONTENEGRO, BOTSWANA, GRUUSIA, ISLAND, TADŽIKISTAN, TAANI, ANTIGUA, PANAMA, MALAWI, RUMEENIA, MOLDOVA, TAI, GUINEA, 
+>>>>>>> FETCH_HEAD
