@@ -4,7 +4,6 @@ import java.util.Map;
 
 public class Paiguta {
 	private Maatriks maatriks;
-
 	private int min_pikkus = 3;
 
 	Map<String, Lahend> lahendid = new HashMap<String, Lahend>();

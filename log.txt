@@ -122,3 +122,37 @@ HAITI, GAMBIA, BELIZE, IRAAN, MOSAMBIIK, KAMBODŽA, DJIBOUTI, KOMOORID, LAOS, MO
 
 SAALOMONI, GUINEABISSAU, KUUBA, KONGODV, HISPAANIA, LÕUNAAAFRIKAVABARIIK, GAMBIA, MONTENEGRO, BOTSWANA, GRUUSIA, ISLAND, TADŽIKISTAN, TAANI, ANTIGUA, PANAMA, MALAWI, RUMEENIA, MOLDOVA, TAI, GUINEA, 
 >>>>>>> FETCH_HEAD
+ 	01 02 03 04 05 06 07 08 09 
+
+1	S  A  A  L  O  M  O  N  I  
+2	T  R  W  A  N  D  A  P  D  
+3	K  Š  I  .  T  T  N  A  A  
+4	B  A  E  L  .  A  I  R  T  
+5	G  R  M  H  A  A  I  A  I  
+6	A  U  U  B  H  N  H  G  M  
+7	M  .  I  N  O  I  K  U  O  
+8	B  .  .  N  E  D  .  A  R  
+9	I  T  S  E  E  I  Ž  Y  .  
+10	A  C  I  A  M  A  J  A  .  
+
+SAALOMONI, BRUNEI, GAMBIA, TŠEHHI, KAMBODŽA, SRILANKA, RWANDA, TAANI, HIINA, PARAGUAY, EESTI, TAI, IDATIMOR, JAMAICA, GUINEA, 
+Pakkusid sone: 'TAANI' ja sa ei eksi
+Pakkusid sone: 'S.......' aga kahjuks ei leidu sellist
+Pakkusid sone: 'S........' aga kahjuks ei leidu sellist
+Pakkusid sone: 'SAALOMONI' ja sa ei eksi
+ 	01 02 03 04 05 06 07 08 09 10 
+
+1	N  O  R  R  A  G  A  B  O  N  
+2	K  U  U  B  A  S  R  V  M  E  
+3	O  L  E  I  H  R  O  E  A  P  
+4	M  E  T  R  O  I  O  N  L  A  
+5	O  S  I  M  L  L  T  E  A  L  
+6	O  O  O  A  L  A  S  Z  W  B  
+7	R  T  O  .  A  N  I  U  I  E  
+8	I  H  P  N  N  K  T  E  T  L  
+9	D  O  I  .  D  A  A  L  Ä  A  
+10	A  N  A  Y  U  G  I  A  L  U  
+
+HOLLAND, KUUBA, ROOTSI, SRILANKA, TAANI, BELAU, KOMOORID, GUYANA, LÄTI, NORRA, VENEZUELA, MALAWI, BIRMA, TAI, GABON, ETIOOPIA, NEPAL, LESOTHO, 
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'GABON' ja sa ei eksi
