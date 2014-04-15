@@ -1,3 +1,4 @@
+package application;
 
 public class Debug {
 	private static boolean debug = false;

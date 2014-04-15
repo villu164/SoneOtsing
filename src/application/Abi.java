@@ -1,3 +1,4 @@
+package application;
 
 public class Abi {
 	public static void tekst(){
