@@ -238,7 +238,7 @@ public class Main extends Application {
 		try {
 
 			final BorderPane root = new BorderPane();
-			double laius = 300;
+			double pikkus = 300;
 			paiguta = Paiguta.riigid();
 			char[][] tabel = paiguta.getMaatriks().getTabel();
 
@@ -246,8 +246,8 @@ public class Main extends Application {
 			int veerge = paiguta.getMaatriks().getVeerge();
 			tb = new TextBox[ridu][veerge];
 
-			double pikkus = laius*1.0*veerge/ridu;
-			final Scene scene = new Scene(root,pikkus,laius);
+			double laius = pikkus*1.0*veerge/ridu;
+			final Scene scene = new Scene(root,laius,pikkus*1.3);
 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			peaLava.setScene(scene);
@@ -324,7 +324,7 @@ public class Main extends Application {
 					final String karakter = Character.toString(tabel[i][j]);
 					final int rida = i;
 					final int veerg = j;
-					final TextBox ruut = new TextBox(karakter,rida,veerg,pikkus/veerge,laius/ridu);
+					final TextBox ruut = new TextBox(karakter,rida,veerg,laius/veerge,pikkus/ridu);
 					tb[i][j] = ruut;
 					ruut.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent me) {
