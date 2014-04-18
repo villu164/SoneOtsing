@@ -97,4 +97,31 @@ public class Paiguta {
 	public String toString(){
 		return maatriks.toString();
 	}
+	
+	//Klassi meetodid
+	
+	public static Paiguta riigid(){
+		String[] soned = Loe.riigid();
+		Paiguta p = new Paiguta(10,10);
+		Maatriks m = p.getMaatriks();
+		for (int s = 0;s < soned.length;s++){
+			for(int i = 0;i < m.getRidu();i++){
+				for(int j=0;j< m.getVeerge();j++){
+					Point punkt = new Point(j,i);
+					for(int k = 0;k<Kompass.suunad.length;k++){
+						Kompass suund = Kompass.valueOf(Kompass.suunad[k]);
+						Lahend lahend = new Lahend(soned[s].toUpperCase(), punkt, suund);
+						boolean staatus = p.pane(lahend);
+						if (staatus) {
+							i=m.getRidu();
+							j=m.getVeerge();
+							k=8;
+						}
+					}
+				}
+			}
+		}
+		
+		return p;
+	}
 }

@@ -36,6 +36,11 @@ public class Lahend {
 		this.punkt = punkt;
 		this.suund = suund;
 	}
+	public Lahend(int pikkus, Point punkt, Kompass suund) {
+		this.sone = tyhiSone(pikkus);
+		this.punkt = punkt;
+		this.suund = suund;
+	}
 	
 	public static String tyhiSone(int pikkus){
 		char[] c = new char[pikkus];

@@ -40,6 +40,15 @@ public enum Kompass {
 	public Point toPoint(){
 		return new Point(vektor[ilmakaar % 8][1],vektor[ilmakaar % 8][0]);
 	}
+	public static int toInt(int rida, int veerg){
+		for (int i = 0;i<vektor.length;i++){
+			if (rida == vektor[i][0] && veerg == vektor[i][1]) return i;
+		}
+		return -1;
+	}
+	public static Kompass toKompass(int rida, int veerg){
+		return Kompass.valueOf(suunad[toInt(rida,veerg)].toUpperCase());
+	}
 	public String toString(){
 		return suunad[ilmakaar];
 	}
