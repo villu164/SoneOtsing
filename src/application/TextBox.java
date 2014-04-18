@@ -23,6 +23,7 @@ class TextBox extends Group {
 	private boolean ruudu_kohal = false;
 	private boolean hiir_alla = false;
 	private boolean hiir_yles = false;
+	Font font;
 	Color valitud = Color.RED;
 	Color mitte_valitud = Color.BLACK;
 	Color leitud_taust = Color.GOLD;
@@ -39,12 +40,13 @@ class TextBox extends Group {
 		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	    if (this.string.equals(".")) {
 	    	String random_karakter = Character.toString(alphabet.charAt(r.nextInt(alphabet.length())));
-	    	this.string = random_karakter;
+	    	//this.string = random_karakter;
 	    }
 		this.text = new Text(this.string);
 		text.setTextAlignment(TextAlignment.CENTER);
 		text.setFill(Color.FORESTGREEN);
 		text.setTextOrigin(VPos.CENTER);
+		font = get_font(height);
 		text.setFont(Font.font("Comic Sans MS", height/1.2));
 		text.setFontSmoothingType(FontSmoothingType.LCD);
 
@@ -55,6 +57,10 @@ class TextBox extends Group {
 		text.setClip(clip);
 
 		this.getChildren().addAll(rectangle, text);
+	}
+	
+	Font get_font(double size){
+		return Font.font("Comic Sans MS", size);
 	}
 	
 	String getText(){
@@ -112,15 +118,16 @@ class TextBox extends Group {
 		}
 		
 	}
-
-	public boolean isHiir_yles() {
-		return hiir_yles;
+	
+	public void setSize(int size){
+		rectangle.setWidth(size);
+		rectangle.setHeight(size);
+		clip.setWidth(size);
+		clip.setHeight(size);
+		text.setFont(get_font(size/2));
+		layoutChildren();
 	}
-
-	public void setHiir_yles(boolean hiir_yles) {
-		this.hiir_yles = hiir_yles;
-	}
-
+	
 	@Override protected void layoutChildren() {
 		final double w = rectangle.getWidth();
 		final double h = rectangle.getHeight();

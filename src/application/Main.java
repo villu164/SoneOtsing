@@ -74,11 +74,11 @@ public class Main extends Application {
 		TextBox esimene_ruut = null;
 		TextBox ruudu_kohal = null;
 		ArrayList<TextBox> pakkumine = new ArrayList<TextBox>();
-		//System.out.println(me.getEventType());
+		System.out.println(me.getEventType());
 		for(int i = 0;i<tb.length;i++){
 			for(int j = 0;j<tb[i].length;j++){
 				TextBox ruut = tb[i][j];
-				
+
 				if (ruut.isHiir_alla()) esimene_ruut = ruut;
 				if (leitud) { 
 					//kui esimene ruut on leitud, siis k��ik j��rgmised on mitte, sest ilma selle tingimuseta on v��imalik, et korraga on valitud 4 ruutu
@@ -103,11 +103,30 @@ public class Main extends Application {
 				case "MOUSE_MOVED":
 					ruut.setRuudu_kohal(leitud);
 					break;
+					
+				case "MOUSE_EXITED_TARGET":
+					ruut.setRuudu_kohal(false);
+					break;
 
 				case "MOUSE_RELEASED":
-					if (leitud) kinnita = true;
-					ruut.setHiir_yles(leitud);
-					ruut.setRuudu_kohal(leitud);
+					if (leitud) {
+						kinnita = true;
+						if (esimene_ruut == viimane_ruut) {
+							kinnita = false;
+							ruut.setRuudu_kohal(false);
+							esimene_ruut.setRuudu_kohal(false);
+							esimene_ruut.setHiir_alla(false);
+//							ruut.setRuudu_kohal(true);
+						}
+						else {
+							
+							ruut.setRuudu_kohal(leitud);
+						}
+					}
+					else {
+						ruut.setRuudu_kohal(false);
+					}
+
 					break;
 
 				default:
@@ -125,8 +144,7 @@ public class Main extends Application {
 			for(int i = 0;i<tb.length;i++){
 				for(int j = 0;j<tb[i].length;j++){
 					TextBox ruut = tb[i][j];
-					if (kinnita) {
-						ruut.setHiir_yles(false);
+					if (kinnita) {						
 						ruut.setHiir_alla(false);
 					}
 				}
@@ -170,6 +188,7 @@ public class Main extends Application {
 				}
 				System.out.println(paiguta.leiaSoned());
 			}
+
 			//Lahend lahend = Lahend.parseLahend("");
 			//bug 1, kui lohistada aknast v��lja, siis j����b kollane alles. Kui teha kl��ps ainult ��he ruudu peale, siis j����b kollane alles. Kui kollane on alles, siis j����b drag peale
 			//but 2, lahendi s��na n��itab aeg,ajalt teibaid 
@@ -219,8 +238,16 @@ public class Main extends Application {
 		try {
 
 			final BorderPane root = new BorderPane();
-			double laius = 600;
-			final Scene scene = new Scene(root,laius,laius);
+			double laius = 300;
+			paiguta = Paiguta.riigid();
+			char[][] tabel = paiguta.getMaatriks().getTabel();
+
+			int ridu = paiguta.getMaatriks().getRidu();
+			int veerge = paiguta.getMaatriks().getVeerge();
+			tb = new TextBox[ridu][veerge];
+
+			double pikkus = laius*1.0*veerge/ridu;
+			final Scene scene = new Scene(root,pikkus,laius);
 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			peaLava.setScene(scene);
@@ -269,22 +296,19 @@ public class Main extends Application {
 			}); //siin l��peb aknas��ndmuse kirjeldus
 
 			//Loe.tyhjenda();
-			paiguta = Paiguta.riigid(5,5);
+			
 
 			scene.widthProperty().addListener(new ChangeListener<Number>() {
 
 				@Override
 				public void changed(ObservableValue<? extends Number> arg0,
 						Number arg1, Number arg2) {
-					// TODO Auto-generated method stub
-					if (ruut != null && root.getChildren().contains(ruut)) {
-						//root.getChildren().remove(ruut);
-						//Ruudustik ruudustik = new Ruudustik(paiguta);
-						//ruut = ruudustik.anna_ruudustik(scene.getWidth());
-						//root.getChildren().add(ruut);
-						peaLava.setHeight(scene.getWidth());
-						peaLava.setWidth(scene.getWidth());
-					}
+						for(int i = 0;i<tb.length;i++){
+							for(int j = 0;j<tb[i].length;j++){
+								TextBox ruut = tb[i][j];
+								ruut.setSize(50);
+							}
+						}
 				}
 
 			});
@@ -294,18 +318,13 @@ public class Main extends Application {
 			System.out.println("Genereerin ruudustiku");
 			Group ruudustik = new Group();
 			GridPane grid = new GridPane();
-			char[][] tabel = paiguta.getMaatriks().getTabel();
-
-			int ridu = paiguta.getMaatriks().getRidu();
-			int veerge = paiguta.getMaatriks().getVeerge();
-			tb = new TextBox[ridu][veerge];
-
+			
 			for(int i = 0;i<tabel.length;i++){
 				for(int j = 0;j<tabel[i].length;j++){
 					final String karakter = Character.toString(tabel[i][j]);
 					final int rida = i;
 					final int veerg = j;
-					final TextBox ruut = new TextBox(karakter,rida,veerg,laius/veerge,laius/ridu);
+					final TextBox ruut = new TextBox(karakter,rida,veerg,pikkus/veerge,laius/ridu);
 					tb[i][j] = ruut;
 					ruut.addEventHandler(MouseEvent.ANY, new EventHandler<MouseEvent>() {
 						public void handle(MouseEvent me) {
