@@ -65,6 +65,10 @@ class TextBox extends Group {
 	void setFill(Color c){
 		rectangle.setFill(c);
 	}
+	
+	void setLeitudFill(Color c){
+		leitud_taust = c;
+	}
 
 	public boolean isLeitud() {
 		return leitud;

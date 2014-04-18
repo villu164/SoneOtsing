@@ -2,6 +2,7 @@ package application;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -48,7 +49,22 @@ public class Main extends Application {
 	private TextBox[][] tb;
 	private boolean mouse_up = false;
 	private boolean mouse_down = false;
+	private boolean voit = false;
 
+	public Color get_juhuslik_fill(){
+		int R = (int)(Math.random()*256);
+		int G = (int)(Math.random()*256);
+		int B= (int)(Math.random()*256);
+		return Color.rgb(R, G, B); //random color, but can be bright or dull
+	}
+	public Color get_juhuslik_ilus_fill(){
+		//to get rainbow, pastel colors
+		Random random = new Random();
+		final float hue = random.nextFloat();
+		final float saturation = 0.9f;//1.0 for brilliant, 0.0 for dull
+		final float luminance = 1.0f; //1.0 for brighter, 0.0 for black
+		return Color.hsb(hue, saturation, luminance);
+	}
 
 	public TextBox get_ruudu_kohal(double x, double y, MouseEvent me){
 		boolean leitud = false;
@@ -134,9 +150,15 @@ public class Main extends Application {
 			if (kinnita){
 				boolean oige = paiguta.leidub(lahend);
 				if (oige) {
+					Color leitud_fill = get_juhuslik_fill();
 					System.out.println("YES:" + lahend);
 					for (TextBox ruut : pakkumine){
 						ruut.setLeitud(true);
+						ruut.setLeitudFill(leitud_fill);
+						voit = true;
+					}
+					if (paiguta.leiaSoned().isEmpty()){
+						voit = true;
 					}
 				}
 				else{
@@ -147,7 +169,7 @@ public class Main extends Application {
 			//Lahend lahend = Lahend.parseLahend("");
 			//bug 1, kui lohistada aknast v��lja, siis j����b kollane alles. Kui teha kl��ps ainult ��he ruudu peale, siis j����b kollane alles. Kui kollane on alles, siis j����b drag peale
 			//but 2, lahendi s��na n��itab aeg,ajalt teibaid 
-			
+
 		}
 		//register_selection
 		return null;
