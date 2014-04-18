@@ -101,8 +101,12 @@ public class Paiguta {
 	//Klassi meetodid
 	
 	public static Paiguta riigid(){
+		return riigid(10,10);
+	}
+	
+	public static Paiguta riigid(int ridu, int veerge){
 		String[] soned = Loe.riigid();
-		Paiguta p = new Paiguta(10,10);
+		Paiguta p = new Paiguta(ridu,veerge);
 		Maatriks m = p.getMaatriks();
 		for (int s = 0;s < soned.length;s++){
 			for(int i = 0;i < m.getRidu();i++){

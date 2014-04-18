@@ -78,8 +78,11 @@ public class Main extends Application {
 		for(int i = 0;i<tb.length;i++){
 			for(int j = 0;j<tb[i].length;j++){
 				TextBox ruut = tb[i][j];
+				
 				if (ruut.isHiir_alla()) esimene_ruut = ruut;
-				if (leitud) { //kui esimene ruut on leitud, siis k��ik j��rgmised on mitte, sest ilma selle tingimuseta on v��imalik, et korraga on valitud 4 ruutu
+				if (leitud) { 
+					//kui esimene ruut on leitud, siis k��ik j��rgmised on mitte, sest ilma selle tingimuseta on v��imalik, et korraga on valitud 4 ruutu
+					//Seega tavaliselt siia ei tulda
 					ruut.setRuudu_kohal(false);
 					ruudu_kohal = ruut;
 					continue;
@@ -112,7 +115,7 @@ public class Main extends Application {
 				}
 			}
 		}
-		if (esimene_ruut != null && me.getEventType().toString() == "MOUSE_RELEASED" && ruudu_kohal == null) {
+		if (esimene_ruut != null && viimane_ruut == null && me.getEventType().toString() == "MOUSE_RELEASED" && ruudu_kohal == null) {
 			esimene_ruut.setRuudu_kohal(false);
 			esimene_ruut.setHiir_alla(false);
 			return null;
@@ -147,6 +150,7 @@ public class Main extends Application {
 			Kompass suund = Kompass.toKompass(lahend_rida,lahend_veerg);
 			Lahend lahend = new Lahend(pikkus,punkt,suund);
 			paiguta.vota(lahend);
+			//System.out.println(lahend.toString(true) + " " + kinnita);
 			if (kinnita){
 				boolean oige = paiguta.leidub(lahend);
 				if (oige) {
@@ -265,7 +269,7 @@ public class Main extends Application {
 			}); //siin l��peb aknas��ndmuse kirjeldus
 
 			//Loe.tyhjenda();
-			paiguta = Paiguta.riigid();
+			paiguta = Paiguta.riigid(5,5);
 
 			scene.widthProperty().addListener(new ChangeListener<Number>() {
 
