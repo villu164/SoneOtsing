@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Random;
+
 import javafx.beans.property.StringProperty;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
@@ -23,7 +25,9 @@ class TextBox extends Group {
 	private boolean hiir_yles = false;
 	Color valitud = Color.RED;
 	Color mitte_valitud = Color.BLACK;
+	Color leitud_taust = Color.GOLD;
 	Color vajutatud = Color.YELLOW;
+	private boolean leitud = false;
 	//Color vabastatud = Color.BLUE;
 	public StringProperty textProperty() { return text.textProperty(); }
 
@@ -31,7 +35,14 @@ class TextBox extends Group {
 		this.rida = rida;
 		this.veerg = veerg;
 		this.string = string;
-		this.text = new Text(string);
+		Random r = new Random();
+		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	    if (this.string.equals(".")) {
+	    	String random_karakter = Character.toString(alphabet.charAt(r.nextInt(alphabet.length())));
+	    	System.out.println(random_karakter);
+	    	this.string = random_karakter;
+	    }
+		this.text = new Text(this.string);
 		text.setTextAlignment(TextAlignment.CENTER);
 		text.setFill(Color.FORESTGREEN);
 		text.setTextOrigin(VPos.CENTER);
@@ -54,7 +65,14 @@ class TextBox extends Group {
 	void setFill(Color c){
 		rectangle.setFill(c);
 	}
-	
+
+	public boolean isLeitud() {
+		return leitud;
+	}
+
+	public void setLeitud(boolean leitud) {
+		this.leitud = leitud;
+	}
 
 	public boolean isRuudu_kohal() {
 		return ruudu_kohal;
@@ -67,7 +85,8 @@ class TextBox extends Group {
 				setFill(valitud);
 			}
 			else {
-				setFill(mitte_valitud);
+				if (leitud) setFill(leitud_taust);
+				else setFill(mitte_valitud);
 			}
 			
 		}
@@ -83,7 +102,10 @@ class TextBox extends Group {
 			setFill(vajutatud);
 		}
 		else {
-			if (!this.ruudu_kohal) setFill(mitte_valitud);
+			if (!this.ruudu_kohal) {
+				if (leitud) setFill(leitud_taust);
+				else setFill(mitte_valitud);
+			}
 		}
 		
 	}

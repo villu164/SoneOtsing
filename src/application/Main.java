@@ -1,6 +1,7 @@
 package application;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -56,12 +57,13 @@ public class Main extends Application {
 		TextBox viimane_ruut = null;
 		TextBox esimene_ruut = null;
 		TextBox ruudu_kohal = null;
+		ArrayList<TextBox> pakkumine = new ArrayList<TextBox>();
 		//System.out.println(me.getEventType());
 		for(int i = 0;i<tb.length;i++){
 			for(int j = 0;j<tb[i].length;j++){
 				TextBox ruut = tb[i][j];
 				if (ruut.isHiir_alla()) esimene_ruut = ruut;
-				if (leitud) { //kui esimene ruut on leitud, siis kõik järgmised on mitte, sest ilma selle tingimuseta on võimalik, et korraga on valitud 4 ruutu
+				if (leitud) { //kui esimene ruut on leitud, siis k��ik j��rgmised on mitte, sest ilma selle tingimuseta on v��imalik, et korraga on valitud 4 ruutu
 					ruut.setRuudu_kohal(false);
 					ruudu_kohal = ruut;
 					continue;
@@ -111,23 +113,40 @@ public class Main extends Application {
 				}
 			}
 			int pikkus = 2;
+			pakkumine.add(esimene_ruut);
+			pakkumine.add(viimane_ruut);
 			for(int i = Math.min(esimene_ruut.rida, viimane_ruut.rida);i<=Math.max(esimene_ruut.rida, viimane_ruut.rida);i++){
 				for(int j = Math.min(esimene_ruut.veerg, viimane_ruut.veerg);j<=Math.max(esimene_ruut.veerg, viimane_ruut.veerg);j++){
 					TextBox ruut = tb[i][j];
 					boolean tulemus = kas_ruut_on_sirgel(esimene_ruut,viimane_ruut,ruut);
-					if (tulemus) pikkus++;
+					if (tulemus) {
+						pikkus++;
+						pakkumine.add(ruut);
+					}
 				}
 			}
 			int lahend_rida = (int)(Math.signum(viimane_ruut.rida - esimene_ruut.rida));
 			int lahend_veerg = (int)(Math.signum(viimane_ruut.veerg - esimene_ruut.veerg));
-			Point punkt = new Point(esimene_ruut.rida,esimene_ruut.veerg);
+			Point punkt = new Point(esimene_ruut.veerg,esimene_ruut.rida);
 			Kompass suund = Kompass.toKompass(lahend_rida,lahend_veerg);
 			Lahend lahend = new Lahend(pikkus,punkt,suund);
 			paiguta.vota(lahend);
-			System.out.println(lahend);
+			if (kinnita){
+				boolean oige = paiguta.leidub(lahend);
+				if (oige) {
+					System.out.println("YES:" + lahend);
+					for (TextBox ruut : pakkumine){
+						ruut.setLeitud(true);
+					}
+				}
+				else{
+					System.out.println("NO:" + lahend);
+				}
+				System.out.println(paiguta.leiaSoned());
+			}
 			//Lahend lahend = Lahend.parseLahend("");
-			//bug 1, kui lohistada aknast välja, siis jääb kollane alles. Kui teha klõps ainult ühe ruudu peale, siis jääb kollane alles. Kui kollane on alles, siis jääb drag peale
-			//but 2, lahendi sõna näitab aeg,ajalt teibaid 
+			//bug 1, kui lohistada aknast v��lja, siis j����b kollane alles. Kui teha kl��ps ainult ��he ruudu peale, siis j����b kollane alles. Kui kollane on alles, siis j����b drag peale
+			//but 2, lahendi s��na n��itab aeg,ajalt teibaid 
 			
 		}
 		//register_selection
@@ -180,25 +199,25 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			peaLava.setScene(scene);
 			//root.getChildren().add(karakter.anna_karakter('A'));
-			// aknasündmuse lisamine
+			// aknas��ndmuse lisamine
 			peaLava.setOnHiding(new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent event) {
 					if (true) System.exit(1);
 					// luuakse teine lava
 					final Stage kusimus = new Stage();
-					// küsimuse ja kahe nupu loomine
-					Label label = new Label("Kas tõesti tahad kinni panna?");
+					// k��simuse ja kahe nupu loomine
+					Label label = new Label("Kas t��esti tahad kinni panna?");
 					Button okButton = new Button("Jah");
 					Button cancelButton = new Button("Ei");
 
-					// sündmuse lisamine nupule Jah
+					// s��ndmuse lisamine nupule Jah
 					okButton.setOnAction(new EventHandler<ActionEvent>() {
 						public void handle(ActionEvent event) {
 							kusimus.hide();
 						}
 					});
 
-					// sündmuse lisamine nupule Ei
+					// s��ndmuse lisamine nupule Ei
 					cancelButton.setOnAction(new EventHandler<ActionEvent>() {
 						public void handle(ActionEvent event) {
 							peaLava.show();
@@ -211,17 +230,17 @@ public class Main extends Application {
 					pane.setAlignment(Pos.CENTER);
 					pane.getChildren().addAll(okButton, cancelButton);
 
-					// küsimuse ja nuppude gruppi paigutamine
+					// k��simuse ja nuppude gruppi paigutamine
 					VBox vBox = new VBox(10);
 					vBox.setAlignment(Pos.CENTER);
 					vBox.getChildren().addAll(label, pane);
 
-					//stseeni loomine ja näitamine
+					//stseeni loomine ja n��itamine
 					Scene stseen2 = new Scene(vBox);
 					kusimus.setScene(stseen2);
 					kusimus.show();
 				}
-			}); //siin lõpeb aknasündmuse kirjeldus
+			}); //siin l��peb aknas��ndmuse kirjeldus
 
 			//Loe.tyhjenda();
 			paiguta = Paiguta.riigid();

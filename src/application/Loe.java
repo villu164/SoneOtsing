@@ -56,8 +56,8 @@ public class Loe {
 	}
 
 	static boolean kontrolli(String sone){
-		if (sone.toLowerCase().equals("välju") || sone.toLowerCase().equals("v2lju") ||
-				sone.toLowerCase().equals("v2lja") || sone.toLowerCase().equals("välja")) {
+		if (sone.toLowerCase().equals("v��lju") || sone.toLowerCase().equals("v2lju") ||
+				sone.toLowerCase().equals("v2lja") || sone.toLowerCase().equals("v��lja")) {
 			Abi.lahkumistekst();
 			System.exit(0);
 			return false;
