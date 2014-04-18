@@ -242,8 +242,8 @@ public class Main extends Application {
 			paiguta = Paiguta.riigid();
 			char[][] tabel = paiguta.getMaatriks().getTabel();
 
-			int ridu = paiguta.getMaatriks().getRidu();
-			int veerge = paiguta.getMaatriks().getVeerge();
+			final int ridu = paiguta.getMaatriks().getRidu();
+			final int veerge = paiguta.getMaatriks().getVeerge();
 			tb = new TextBox[ridu][veerge];
 
 			double laius = pikkus*1.0*veerge/ridu;
@@ -306,7 +306,7 @@ public class Main extends Application {
 						for(int i = 0;i<tb.length;i++){
 							for(int j = 0;j<tb[i].length;j++){
 								TextBox ruut = tb[i][j];
-								ruut.setSize(50);
+								ruut.setSize(scene.getWidth()/veerge);
 							}
 						}
 				}

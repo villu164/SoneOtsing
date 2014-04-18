@@ -119,12 +119,12 @@ class TextBox extends Group {
 		
 	}
 	
-	public void setSize(int size){
-		rectangle.setWidth(size);
-		rectangle.setHeight(size);
-		clip.setWidth(size);
-		clip.setHeight(size);
-		text.setFont(get_font(size/2));
+	public void setSize(double d){
+		rectangle.setWidth(d);
+		rectangle.setHeight(d);
+		clip.setWidth(d);
+		clip.setHeight(d);
+		text.setFont(get_font(d/2));
 		layoutChildren();
 	}
 	
