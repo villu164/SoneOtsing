@@ -1,13 +1,8 @@
 package application;
 
-import java.util.Random;
-
-import javafx.beans.property.StringProperty;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.Text;

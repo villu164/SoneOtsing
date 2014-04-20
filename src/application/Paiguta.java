@@ -22,11 +22,9 @@ public class Paiguta {
 	
 	public String leiaSoned(){
 		StringBuilder sb = new StringBuilder();
-		boolean on_veel = false;
 		for(Map.Entry<String, Lahend> lahend : lahendid.entrySet()){
 		    if (!lahend.getValue().isLeitud()){
 		    	sb.append(lahend.getValue() + ", ");
-		    	on_veel = true;
 		    }
 		}
 		return sb.toString();

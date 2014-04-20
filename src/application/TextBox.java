@@ -5,7 +5,6 @@ import java.util.Random;
 import javafx.beans.property.StringProperty;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -22,7 +21,6 @@ class TextBox extends Group {
 	int veerg;
 	private boolean ruudu_kohal = false;
 	private boolean hiir_alla = false;
-	private boolean hiir_yles = false;
 	Font font;
 	Color valitud = Color.RED;
 	Color mitte_valitud = Color.BLACK;
@@ -36,7 +34,6 @@ class TextBox extends Group {
 	Color leitud_taust = Color.GOLD;
 	Color vajutatud = Color.YELLOW;
 	private boolean leitud = false;
-	//Color vabastatud = Color.BLUE;
 	public StringProperty textProperty() { return text.textProperty(); }
 
 	TextBox(String string, int rida, int veerg, double width, double height) {
