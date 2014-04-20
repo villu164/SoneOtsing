@@ -101,7 +101,7 @@ public class Paiguta {
 	//Klassi meetodid
 	
 	public static Paiguta riigid(){
-		return riigid(5,10);
+		return riigid(10,16);
 	}
 	
 	public static Paiguta riigid(int ridu, int veerge){

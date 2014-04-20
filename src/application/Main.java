@@ -14,6 +14,7 @@ import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.Group;
@@ -34,6 +35,7 @@ import javafx.scene.text.TextAlignment;
 
 public class Main extends Application {
 	private Group ruut;
+	private Stage global_peaLava;
 	private double laius = 500;
 	private Paiguta paiguta;
 	private TextBox valitud;
@@ -184,10 +186,9 @@ public class Main extends Application {
 					for (TextBox ruut : pakkumine){
 						ruut.setLeitud(true);
 						ruut.setLeitudFill(leitud_fill);
-						//voit = true;
 					}
-					if (paiguta.leiaSoned().isEmpty()){
-						voit = true;
+					if (paiguta.leiaSoned().isEmpty() && !voit){
+						voitsid();
 					}
 					for (LahendBox lb : lbal) {
 						lb.checkLeitud();
@@ -242,6 +243,11 @@ public class Main extends Application {
 		return tulemus;
 	}
 
+	public void voitsid(){
+		teade("Voitsid",true);
+		voit = true;
+		
+	}
 	
 	public void kas_valjun(final Stage peaLava){
 		//if (true) System.exit(1);
@@ -266,7 +272,6 @@ public class Main extends Application {
 				kusimus.hide();
 			}
 		});
-		
 		
 
 		// nuppude grupeerimine
@@ -310,11 +315,16 @@ public class Main extends Application {
 		kusimus.show();
 	}
 
-	public void kas_abistan(final Stage peaLava){
-		teade(peaLava,Abi.fx_abitekst());
+	public void kas_abistan(){
+		teade(Abi.fx_abitekst());
 	}
 
-	public void teade(final Stage peaLava, String sonum){
+	public void teade(String sonum){
+		teade(sonum,false);
+	}
+	
+	public void teade(String sonum, final boolean valjun){
+		final Stage peaLava = global_peaLava;
 		//if (true) System.exit(1);
 		// luuakse teine lava
 		final Stage teade = new Stage();
@@ -325,7 +335,8 @@ public class Main extends Application {
 		// s��ndmuse lisamine nupule Jah
 		okButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent event) {
-				teade.hide();
+				if (!valjun) teade.hide();
+		        else System.exit(2);
 			}
 		});
 
@@ -344,7 +355,8 @@ public class Main extends Application {
 		
 		stseen2.setOnKeyPressed(new EventHandler<KeyEvent>() {
 		    public void handle(KeyEvent event) {
-		        teade.hide();
+		        if (!valjun) teade.hide();
+		        else System.exit(2);
 		    }
 		});
 		
@@ -356,9 +368,9 @@ public class Main extends Application {
 	@Override
 	public void start(final Stage peaLava) {
 		try {
-
+			global_peaLava = peaLava;
 			final BorderPane root = new BorderPane();
-			double pikkus = 300;
+			final double pikkus = 100;
 			paiguta = Paiguta.riigid();
 			char[][] tabel = paiguta.getMaatriks().getTabel();
 
@@ -366,9 +378,18 @@ public class Main extends Application {
 			final int veerge = paiguta.getMaatriks().getVeerge();
 			tb = new TextBox[ridu][veerge];
 
-			double laius = pikkus*1.0*veerge/ridu;
-			final Scene scene = new Scene(root,laius,pikkus*1.6);
+			final double laius = pikkus*1.0*veerge/ridu;
+			final Scene scene = new Scene(root,laius,pikkus*1.3);
 
+			final FlowPane flow = new FlowPane();
+			flow.setPadding(new Insets(5, 0, 5, 0));
+			flow.setVgap(4);
+			flow.setHgap(10);
+			flow.setPrefWrapLength(laius); // preferred width allows for two columns
+			flow.setTranslateY(pikkus);
+			flow.setStyle("-fx-background-color: FFFFFF;");
+
+			
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			peaLava.setScene(scene);
 			//root.getChildren().add(karakter.anna_karakter('A'));
@@ -381,28 +402,50 @@ public class Main extends Application {
 
 			//Loe.tyhjenda();
 
-
+			peaLava.setMinHeight(pikkus*1.3);
+			peaLava.setMinWidth(laius);
+			peaLava.setWidth(600);
+			peaLava.setHeight((pikkus*1.3/laius)*600);
+			
+			//peaLava.minWidthProperty().bind(scene.heightProperty().multiply((veerge/ridu)/1.6));
+			//peaLava.minHeightProperty().bind(scene.widthProperty().divide((veerge/ridu)/1.6));
+			
 			scene.widthProperty().addListener(new ChangeListener<Number>() {
 
 				@Override
 				public void changed(ObservableValue<? extends Number> arg0,
 						Number arg1, Number arg2) {
+					double max_pikkus = Screen.getPrimary().getBounds().getHeight();
+					double uus_pikkus = scene.getWidth()/veerge*ridu;
+					double safe_pikkus = Math.min(max_pikkus/1.3,uus_pikkus);
+					//peaLava.setHeight(peaLava.getWidth()/veerge*ridu*1.6);
 					for(int i = 0;i<tb.length;i++){
 						for(int j = 0;j<tb[i].length;j++){
 							TextBox ruut = tb[i][j];
-							ruut.setSize(scene.getWidth()/veerge);
+							ruut.setSize(safe_pikkus/ridu);
 						}
 					}
+					for (LahendBox lb : lbal) {
+						lb.setSize(safe_pikkus*0.3);
+					}
+					//System.out.println(uus_pikkus + ";" + max_pikkus + ";" + safe_pikkus);
+					//double laius = scene.getWidth()*veerge/ridu;
+					flow.setPrefWrapLength(scene.getWidth()); // preferred width allows for two columns
+					flow.setTranslateY(safe_pikkus);
+					flow.setVgap(safe_pikkus/ridu/6);
+					flow.setHgap(safe_pikkus/ridu/6);
+
 				}
 
 			});
 
+			
 
-
-			System.out.println("Genereerin ruudustiku");
+			
+			System.out.println("Genereerin ruudustiku. Peaekraani lahutus on " + Screen.getPrimary().getBounds().getWidth() + ";" + Screen.getPrimary().getBounds().getHeight());
 			Group ruudustik = new Group();
 			GridPane grid = new GridPane();
-
+			
 			for(int i = 0;i<tabel.length;i++){
 				for(int j = 0;j<tabel[i].length;j++){
 					final String karakter = Character.toString(tabel[i][j]);
@@ -476,7 +519,7 @@ public class Main extends Application {
 							case F1:
 							case H:
 							case A:
-								kas_abistan(peaLava);
+								kas_abistan();
 								event.consume();
 								return;
 								
@@ -508,20 +551,13 @@ public class Main extends Application {
 					grid.add(ruut, j,i);
 				}
 			}
-			FlowPane flow = new FlowPane();
-			flow.setPadding(new Insets(5, 0, 5, 0));
-			flow.setVgap(4);
-			flow.setHgap(10);
-			flow.setPrefWrapLength(laius); // preferred width allows for two columns
-			flow.setTranslateY(pikkus);
-			flow.setStyle("-fx-background-color: FFFFFF;");
-
-			Font font = Font.font("Comic Sans MS", 0.09*pikkus);
+			
+			
 			Map<String, Lahend> lahendid = paiguta.getLahendid();
 			StringBuilder sb = new StringBuilder();
 			boolean on_veel = false;
 			for(Map.Entry<String, Lahend> lahend : lahendid.entrySet()){
-				LahendBox lb = new LahendBox(lahend.getValue(),font);
+				LahendBox lb = new LahendBox(lahend.getValue(),pikkus);
 				lbal.add(lb);
 				flow.getChildren().add(lb);
 			}		    
@@ -543,7 +579,7 @@ public class Main extends Application {
 			root.getChildren().add(ruudustik);
 
 			peaLava.show();
-			kas_abistan(peaLava);
+			kas_abistan();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

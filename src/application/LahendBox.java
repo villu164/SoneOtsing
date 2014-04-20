@@ -17,7 +17,8 @@ class LahendBox extends Group {
 	private Lahend lahend;
 	private Text text;
 
-	LahendBox(Lahend lahend, Font font) {
+	LahendBox(Lahend lahend, double pikkus) {
+		Font font = getFont(pikkus);
 		text =  new Text(lahend.toString());
         text.setStrikethrough(lahend.isLeitud());
         text.setTextAlignment(TextAlignment.CENTER);
@@ -28,8 +29,18 @@ class LahendBox extends Group {
 		this.lahend = lahend;
         this.getChildren().add(text);
 	}
+	Font getFont(double pikkus){
+		return Font.font("Comic Sans MS", 0.09*pikkus);
+	}
+	
+	public void setSize(double pikkus){
+		text.setFont(getFont(pikkus));
+	}
 	
 	public void checkLeitud(){
 		if (this.lahend.isLeitud()) text.setStrikethrough(true);
+	}
+	public String toString(){
+		return lahend.toString();
 	}
 }
