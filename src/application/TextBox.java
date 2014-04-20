@@ -26,6 +26,13 @@ class TextBox extends Group {
 	Font font;
 	Color valitud = Color.RED;
 	Color mitte_valitud = Color.BLACK;
+	Color mitte_valitud_invert = Color.BEIGE;
+	Color mitte_valitud_not_invert = mitte_valitud;
+	Color teksti_varv = Color.FORESTGREEN;
+	Color teksti_varv_invert = Color.BLACK;
+	Color teksti_varv_not_invert = teksti_varv;
+	
+	boolean inverted = false;
 	Color leitud_taust = Color.GOLD;
 	Color vajutatud = Color.YELLOW;
 	private boolean leitud = false;
@@ -40,11 +47,12 @@ class TextBox extends Group {
 		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	    if (this.string.equals(".")) {
 	    	String random_karakter = Character.toString(alphabet.charAt(r.nextInt(alphabet.length())));
+	    	this.string = " ";
 	    	//this.string = random_karakter;
 	    }
 		this.text = new Text(this.string);
 		text.setTextAlignment(TextAlignment.CENTER);
-		text.setFill(Color.FORESTGREEN);
+		text.setFill(teksti_varv);
 		text.setTextOrigin(VPos.CENTER);
 		font = get_font(height);
 		text.setFont(Font.font("Comic Sans MS", height/1.2));
@@ -61,6 +69,20 @@ class TextBox extends Group {
 	
 	Font get_font(double size){
 		return Font.font("Comic Sans MS", size);
+	}
+	
+	void invert(){
+		inverted = !inverted;
+		if (inverted) {
+			mitte_valitud = mitte_valitud_invert;
+			teksti_varv = teksti_varv_invert;
+		}
+		else {
+			mitte_valitud = mitte_valitud_not_invert;
+			teksti_varv = teksti_varv_not_invert;
+		}
+		if (!ruudu_kohal) setFill(mitte_valitud);
+		text.setFill(teksti_varv);
 	}
 	
 	String getText(){

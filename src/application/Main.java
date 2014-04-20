@@ -2,6 +2,7 @@ package application;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
 
 import javafx.application.Application;
@@ -10,21 +11,25 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 
 public class Main extends Application {
@@ -47,6 +52,8 @@ public class Main extends Application {
 	private TextBox algus_ruut;
 	private TextBox ruudu_kohal;
 	private TextBox[][] tb;
+	private StringBuilder konsool = new StringBuilder(10);
+	private ArrayList<LahendBox> lbal = new ArrayList<LahendBox>();
 	private boolean mouse_up = false;
 	private boolean mouse_down = false;
 	private boolean voit = false;
@@ -74,7 +81,7 @@ public class Main extends Application {
 		TextBox esimene_ruut = null;
 		TextBox ruudu_kohal = null;
 		ArrayList<TextBox> pakkumine = new ArrayList<TextBox>();
-		System.out.println(me.getEventType());
+		//System.out.println(me.getEventType());
 		for(int i = 0;i<tb.length;i++){
 			for(int j = 0;j<tb[i].length;j++){
 				TextBox ruut = tb[i][j];
@@ -103,7 +110,7 @@ public class Main extends Application {
 				case "MOUSE_MOVED":
 					ruut.setRuudu_kohal(leitud);
 					break;
-					
+
 				case "MOUSE_EXITED_TARGET":
 					ruut.setRuudu_kohal(false);
 					break;
@@ -116,10 +123,10 @@ public class Main extends Application {
 							ruut.setRuudu_kohal(false);
 							esimene_ruut.setRuudu_kohal(false);
 							esimene_ruut.setHiir_alla(false);
-//							ruut.setRuudu_kohal(true);
+							//							ruut.setRuudu_kohal(true);
 						}
 						else {
-							
+
 							ruut.setRuudu_kohal(leitud);
 						}
 					}
@@ -177,16 +184,19 @@ public class Main extends Application {
 					for (TextBox ruut : pakkumine){
 						ruut.setLeitud(true);
 						ruut.setLeitudFill(leitud_fill);
-						voit = true;
+						//voit = true;
 					}
 					if (paiguta.leiaSoned().isEmpty()){
 						voit = true;
+					}
+					for (LahendBox lb : lbal) {
+						lb.checkLeitud();
 					}
 				}
 				else{
 					System.out.println("NO:" + lahend);
 				}
-				System.out.println(paiguta.leiaSoned());
+				if (Debug.isDebug()) System.out.println(paiguta.leiaSoned());
 			}
 
 			//Lahend lahend = Lahend.parseLahend("");
@@ -232,7 +242,117 @@ public class Main extends Application {
 		return tulemus;
 	}
 
+	
+	public void kas_valjun(final Stage peaLava){
+		//if (true) System.exit(1);
+		// luuakse teine lava
+		final Stage kusimus = new Stage();
+		// k��simuse ja kahe nupu loomine
+		Label label = new Label("Kas tahad kinni panna?");
+		Button okButton = new Button("Jah");
+		Button cancelButton = new Button("Ei");
 
+		// s��ndmuse lisamine nupule Jah
+		okButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				kusimus.hide();
+			}
+		});
+
+		// s��ndmuse lisamine nupule Ei
+		cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				peaLava.show();
+				kusimus.hide();
+			}
+		});
+		
+		
+
+		// nuppude grupeerimine
+		FlowPane pane = new FlowPane(10, 10);
+		pane.setAlignment(Pos.CENTER);
+		pane.getChildren().addAll(okButton, cancelButton);
+
+		// k��simuse ja nuppude gruppi paigutamine
+		VBox vBox = new VBox(10);
+		vBox.setAlignment(Pos.CENTER);
+		vBox.getChildren().addAll(label, pane);
+
+		//stseeni loomine ja n��itamine
+		Scene stseen2 = new Scene(vBox);
+		
+		stseen2.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		    public void handle(KeyEvent event) {
+		        switch (event.getCode()) {
+				case Q:
+				case Y:
+				case J:
+				case ENTER:
+					System.exit(0);
+					return;
+					
+				case E:
+				case N:
+					peaLava.show();
+					kusimus.hide();
+					break;
+					
+					
+
+				default:
+					break;
+				}
+		    }
+		});
+		
+		kusimus.setScene(stseen2);
+		kusimus.show();
+	}
+
+	public void kas_abistan(final Stage peaLava){
+		teade(peaLava,Abi.fx_abitekst());
+	}
+
+	public void teade(final Stage peaLava, String sonum){
+		//if (true) System.exit(1);
+		// luuakse teine lava
+		final Stage teade = new Stage();
+		// k��simuse ja kahe nupu loomine
+		Label label = new Label(sonum);
+		Button okButton = new Button("Jah");
+
+		// s��ndmuse lisamine nupule Jah
+		okButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent event) {
+				teade.hide();
+			}
+		});
+
+		// nuppude grupeerimine
+		FlowPane pane = new FlowPane(10, 10);
+		pane.setAlignment(Pos.CENTER);
+		pane.getChildren().addAll(okButton);
+
+		// k��simuse ja nuppude gruppi paigutamine
+		VBox vBox = new VBox(10);
+		vBox.setAlignment(Pos.CENTER);
+		vBox.getChildren().addAll(label, pane);
+
+		//stseeni loomine ja n��itamine
+		Scene stseen2 = new Scene(vBox);
+		
+		stseen2.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		    public void handle(KeyEvent event) {
+		        teade.hide();
+		    }
+		});
+		
+		teade.setScene(stseen2);
+		teade.show();
+	}
+
+	
 	@Override
 	public void start(final Stage peaLava) {
 		try {
@@ -247,7 +367,7 @@ public class Main extends Application {
 			tb = new TextBox[ridu][veerge];
 
 			double laius = pikkus*1.0*veerge/ridu;
-			final Scene scene = new Scene(root,laius,pikkus*1.3);
+			final Scene scene = new Scene(root,laius,pikkus*1.6);
 
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			peaLava.setScene(scene);
@@ -255,60 +375,24 @@ public class Main extends Application {
 			// aknas��ndmuse lisamine
 			peaLava.setOnHiding(new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent event) {
-					if (true) System.exit(1);
-					// luuakse teine lava
-					final Stage kusimus = new Stage();
-					// k��simuse ja kahe nupu loomine
-					Label label = new Label("Kas t��esti tahad kinni panna?");
-					Button okButton = new Button("Jah");
-					Button cancelButton = new Button("Ei");
-
-					// s��ndmuse lisamine nupule Jah
-					okButton.setOnAction(new EventHandler<ActionEvent>() {
-						public void handle(ActionEvent event) {
-							kusimus.hide();
-						}
-					});
-
-					// s��ndmuse lisamine nupule Ei
-					cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-						public void handle(ActionEvent event) {
-							peaLava.show();
-							kusimus.hide();
-						}
-					});
-
-					// nuppude grupeerimine
-					FlowPane pane = new FlowPane(10, 10);
-					pane.setAlignment(Pos.CENTER);
-					pane.getChildren().addAll(okButton, cancelButton);
-
-					// k��simuse ja nuppude gruppi paigutamine
-					VBox vBox = new VBox(10);
-					vBox.setAlignment(Pos.CENTER);
-					vBox.getChildren().addAll(label, pane);
-
-					//stseeni loomine ja n��itamine
-					Scene stseen2 = new Scene(vBox);
-					kusimus.setScene(stseen2);
-					kusimus.show();
+					kas_valjun(peaLava);
 				}
 			}); //siin l��peb aknas��ndmuse kirjeldus
 
 			//Loe.tyhjenda();
-			
+
 
 			scene.widthProperty().addListener(new ChangeListener<Number>() {
 
 				@Override
 				public void changed(ObservableValue<? extends Number> arg0,
 						Number arg1, Number arg2) {
-						for(int i = 0;i<tb.length;i++){
-							for(int j = 0;j<tb[i].length;j++){
-								TextBox ruut = tb[i][j];
-								ruut.setSize(scene.getWidth()/veerge);
-							}
+					for(int i = 0;i<tb.length;i++){
+						for(int j = 0;j<tb[i].length;j++){
+							TextBox ruut = tb[i][j];
+							ruut.setSize(scene.getWidth()/veerge);
 						}
+					}
 				}
 
 			});
@@ -318,7 +402,7 @@ public class Main extends Application {
 			System.out.println("Genereerin ruudustiku");
 			Group ruudustik = new Group();
 			GridPane grid = new GridPane();
-			
+
 			for(int i = 0;i<tabel.length;i++){
 				for(int j = 0;j<tabel[i].length;j++){
 					final String karakter = Character.toString(tabel[i][j]);
@@ -364,17 +448,90 @@ public class Main extends Application {
 					});
 
 
+					scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+					    public void handle(KeyEvent event) {
+					    	if (event.isMetaDown()) {
+					    		event.consume();
+					    		return;
+					    	}
+					        if (event.isShiftDown()) {
+					        	if (event.getCode() == KeyCode.ENTER) {
+					        		secret_code(konsool.toString());
+					        	}
+					        	else {
+					        		konsool.append(event.getText());
+					        	}
+					            event.consume();
+					            return;
+					        }
+					        switch (event.getCode()) {
+							case ENTER:
+								break;
+							case F2:
+								break;
+							case Q:
+								peaLava.hide();
+								event.consume();
+								return;
+							case F1:
+							case H:
+							case A:
+								kas_abistan(peaLava);
+								event.consume();
+								return;
+								
+							default:
+								break;
+							}
+					        //System.out.println(event.toString() + " " + event.getEventType().toString().equals("KEY_RELEASED"));
+							for(int i = 0;i<tb.length;i++){
+								for(int j = 0;j<tb[i].length;j++){
+									TextBox ruut = tb[i][j];
+									ruut.invert();
+								}
+							}
+					    }
 
+						private void secret_code(String string) {
+							switch (string) {
+							case "DEBUG":
+								Debug.setDebug(!Debug.isDebug());
+								break;
+
+							default:
+								break;
+							}
+							System.out.println("konsool: " + konsool.toString());
+							konsool.setLength(0);
+						}
+					});
 					grid.add(ruut, j,i);
 				}
 			}
+			FlowPane flow = new FlowPane();
+			flow.setPadding(new Insets(5, 0, 5, 0));
+			flow.setVgap(4);
+			flow.setHgap(10);
+			flow.setPrefWrapLength(laius); // preferred width allows for two columns
+			flow.setTranslateY(pikkus);
+			flow.setStyle("-fx-background-color: FFFFFF;");
+
+			Font font = Font.font("Comic Sans MS", 0.09*pikkus);
+			Map<String, Lahend> lahendid = paiguta.getLahendid();
+			StringBuilder sb = new StringBuilder();
+			boolean on_veel = false;
+			for(Map.Entry<String, Lahend> lahend : lahendid.entrySet()){
+				LahendBox lb = new LahendBox(lahend.getValue(),font);
+				lbal.add(lb);
+				flow.getChildren().add(lb);
+			}		    
 
 			//tekst.setTextAlignment(TextAlignment.JUSTIFY);
 			grid.setLayoutX(0);
 			grid.setLayoutY(0);
 
 			ruudustik.getChildren().add(grid);
-
+			ruudustik.getChildren().add(flow);
 
 
 
@@ -386,6 +543,7 @@ public class Main extends Application {
 			root.getChildren().add(ruudustik);
 
 			peaLava.show();
+			kas_abistan(peaLava);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
