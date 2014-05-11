@@ -13,7 +13,9 @@ import java.util.Scanner;
 public class Loe {
 	private static int min_pikkus = 3;
 	static String[] failist(String failinimi) throws FileNotFoundException{
-		Scanner sc = new Scanner(new File(failinimi));
+		File fail = new File(failinimi);
+		//System.out.println("Loen failist " + fail.getAbsolutePath());
+		Scanner sc = new Scanner(fail);
 		ArrayList<String> soned= new ArrayList<String>();
 		while (sc.hasNext()) {
 			String sone = sc.next();
@@ -23,7 +25,7 @@ public class Loe {
 		sc.close();
 		String[] sone = new String[soned.size()];
 		sone = soned.toArray(sone);
-		Kirjuta.teade("Lugesin failist: " + failinimi + " " + sone.length + " s6na");
+		//Kirjuta.teade("Lugesin failist: " + failinimi + " " + sone.length + " s6na");
 		return sone;
 	}
 	static String[] anna_segatud_soned(String[] args){
@@ -52,6 +54,7 @@ public class Loe {
 	}
 	static String[] riigid(){
 		String[] tagasi = {"Afganistan", "Albaania", "Alžeeria", "AmeerikaÜhendriigid", "Andorra", "Angola", "Antigua", "AraabiaÜhendemiraadid", "Argentina", "Armeenia", "Aserbaidžaan", "Austraalia", "Austria", "Bahama", "Bahrein", "Bangladesh", "Barbados", "Belau", "Belgia", "Belize", "Benin", "Bhutan", "Birma", "Boliivia", "BosniajaHertsegoviina", "Botswana", "Brasiilia", "Brunei", "Bulgaaria", "BurkinaFaso", "Burundi", "Colombia", "Costa", "Djibouti", "Dominica", "DominikaaniVabariik", "Ecuador", "Eesti", "Egiptus", "EkvatoriaalGuinea", "ElSalvador", "Elevandiluurannik", "Eritrea", "Etioopia", "Fidži", "Filipiinid", "Gabon", "Gambia", "Ghana", "Grenada", "Gruusia", "Guatemala", "Guinea", "GuineaBissau", "Guyana", "Haiti", "Hiina", "Hispaania", "Holland", "Honduras", "Horvaatia", "IdaTimor", "Iirimaa", "Iisrael", "India", "Indoneesia", "Iraak", "Iraan", "Island", "Itaalia", "Jaapan", "Jamaica", "Jeemen", "Jordaania", "Kambodža", "Kamerun", "Kanada", "Kasahstan", "Katar", "Kenya", "KeskAafrikaVabariik", "Kiribati", "Komoorid", "KongoDV", "KongoVabariik", "Kreeka", "Kuuba", "Kuveit", "Kõrgõzstan", "Küpros", "Laos", "Leedu", "Lesotho", "Libeeria", "Liechtenstein", "Liibanon", "Liibüa", "Luksemburg", "LõunaAafrikaVabariik", "LõunaKorea", "LõunaSudaan", "Läti", "Madagaskar", "Makedoonia", "Malaisia", "Malawi", "Maldiivid", "Mali", "Malta", "Maroko", "MarshalliSaared", "Mauritaania", "Mauritius", "Mehhiko", "Mikroneesia", "Moldova", "Monaco", "Mongoolia", "Montenegro", "Mosambiik", "Namiibia", "Nauru", "Nepal", "Nicaragua", "Nigeeria", "Niger", "Norra", "Omaan", "PaapuaUusGuinea", "Pakistan", "Panama", "Paraguay", "Peruu", "Poola", "Portugal", "Prantsusmaa", "PõhjaKorea", "Roheneemesaared", "Rootsi", "Rumeenia", "Rwanda", "Saalomoni", "SaintKittsJaNevis", "SaintLucia", "SaintVincentJaGrenadiinid", "Saksamaa", "Sambia", "Samoa", "SanMarino", "SoTomjaPrncipe", "SaudiAraabia", "Seišellid", "Senegal", "Serbia", "SierraLeone", "Singapur", "Slovakkia", "Sloveenia", "Somaalia", "Soome", "SriLanka", "Sudaan", "Suriname", "Suurbritannia", "Svaasimaa", "Süüria", "Šveits", "Zimbabwe", "Taani", "Tadžikistan", "Tai", "Tansaania", "Togo", "Tonga", "TrinidadjaTobago", "Tšaad", "Tšehhi", "Tšiili", "Tuneesia", "Tuvalu", "Türgi", "Türkmenistan", "Uganda", "Ukraina", "Ungari", "Uruguay", "Usbekistan", "UusMeremaa", "Valgevene", "Vanuatu", "Vatikan", "Venemaa", "Venezuela", "Vietnam"};
+		//String[] tagasi = {"otsi","sone","isto","enos","otsi"};
 		return tagasi;
 	}
 	

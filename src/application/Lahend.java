@@ -1,7 +1,12 @@
 package application;
 import java.awt.Point;
+import java.io.Serializable;
 import java.util.Arrays;
-public class Lahend {
+public class Lahend implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String sone;
 	private Point punkt;
 	private static char tyhi = '.';

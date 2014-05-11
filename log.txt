@@ -1,0 +1,401 @@
+Lugesin failist: soned.txt 193 s6na
+LÄTI, TAI, GAMBIA, BELIZE, MALTA, KUVEIT, 
+OMAAN, COSTA, TAI, MALTA, TONGA, INDIA, TAANI, 
+ 	1 2 3 4 5 6 
+
+1	O M A A N I 
+2	T O N G A N 
+3	T A A N I D 
+4	C O S T A I 
+5	M A L T A A 
+
+Pakkusid sone: 'OMAAN' ja sa ei eksi
+Pakkusid sone: 'INDIA' ja sa ei eksi
+Pakkusid sone: 'TONGA' ja sa ei eksi
+Pakkusid sone: 'TAANI' ja sa ei eksi
+Pakkusid sone: 'INAAT' aga kahjuks selliste ei leidu :(
+Pakkusid sone: 'COS' aga kahjuks selliste ei leidu :(
+Pakkusid sone: 'COSTA' ja sa ei eksi
+Pakkusid sone: 'MALTA' ja sa ei eksi
+Pakkusid sone: 'TAI' ja sa ei eksi
+V6itsid m2ngu!!! :D
+OMAAN, TŠAAD, COSTA, TAI, MALTA, FIDŽI, GUINEA, 
+ 	1 2 3 4 5 6 
+
+1	O M A A N C 
+2	F I D Ž I O 
+3	T Š A A D S 
+4	M A L T A T 
+5	G U I N E A 
+
+Pakkusid sone: 'OMAA' aga kahjuks selliste ei leidu :(
+MALAWI, HAITI, KANADA, UNGARI, TAI, KREEKA, 
+ 	1 2 3 4 5 6 
+
+1	U N G A R I 
+2	K R E E K A 
+3	H A I T I T 
+4	K A N A D A 
+5	M A L A W I 
+
+OMAAN, TŠAAD, LÄTI, PERUU, IRAAN, RWANDA, 
+ 	1 2 3 4 5 6 
+
+1	I R A A N O 
+2	T Š A A D M 
+3	R W A N D A 
+4	L Ä T I . A 
+5	P E R U U N 
+
+ANGOLA, LÄTI, NIGER, MALI, TAI, INDIA, TAANI, 
+ 	1 2 3 4 5 6 
+
+1	N I G E R T 
+2	A N G O L A 
+3	M A L I Ä A 
+4	T A I . T N 
+5	A I D N I I 
+
+TŠAAD, GUYANA, NORRA, HAITI, TAI, SAMBIA, 
+ 	1 2 3 4 5 6 
+
+1	H A I T I T 
+2	G U Y A N A 
+3	T Š A A D I 
+4	N O R R A . 
+5	S A M B I A 
+
+KENYA, ANGOLA, BHUTAN, JEEMEN, RWANDA, 
+ 	1 2 3 4 5 6 
+
+1	B H U T A N 
+2	J E E M E N 
+3	R W A N D A 
+4	A N G O L A 
+5	K E N Y A . 
+
+KENYA, LÄTI, IRAAN, NEPAL, INDIA, POOLA, TOGO, 
+ 	1 2 3 4 5 6 
+
+1	I R A A N K 
+2	L Ä T I E E 
+3	T O G O P N 
+4	I N D I A Y 
+5	. P O O L A 
+
+NORRA, BRUNEI, JAAPAN, KUVEIT, NAURU, 
+ 	1 2 3 4 5 6 
+
+1	N O R R A . 
+2	J A A P A N 
+3	K U V E I T 
+4	B R U N E I 
+5	N A U R U . 
+
+BELAU, KÜPROS, PERUU, KUUBA, TAI, NAURU, 
+ 	1 2 3 4 5 6 
+
+1	B E L A U . 
+2	K Ü P R O S 
+3	N A U R U T 
+4	P E R U U A 
+5	K U U B A I 
+
+J2tkan vana faili
+Pakkusid sone: '..' aga kahjuks selliste ei leidu :(
+Pakkusid sone: '..' aga kahjuks selliste ei leidu :(
+TÜRGI, LÄTI, NORRA, TAI, TONGA, INDIA, TOGO, TAANI, 
+ 	1 2 3 4 5 6 
+
+1	T Ü R G I N 
+2	A O T . N O 
+3	A G N A D R 
+4	N O . G I R 
+5	I T Ä L A A 
+
+J2tkan vana faili
+J2tkan vana faili
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+BELAU, GHANA, EESTI, TAI, KATAR, NAURU, IRAAK, 
+ 	1 2 3 4 5 6 
+
+1	E E S T I N 
+2	K A T A R A 
+3	. B E L A U 
+4	G H A N A R 
+5	T A I . K U 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+KENYA, BELGIA, LÄTI, SUDAAN, TAI, LEEDU, 
+ 	1 2 3 4 5 6 
+
+1	K E N Y A . 
+2	B E L G I A 
+3	S U D A A N 
+4	L E E D U . 
+5	L Ä T I A T 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+MALAWI, EESTI, LIIBÜA, POOLA, MONACO, 
+ 	1 2 3 4 5 6 
+
+1	L I I B Ü A 
+2	E E S T I . 
+3	P O O L A . 
+4	M O N A C O 
+5	M A L A W I 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+BELAU, BELGIA, GAMBIA, BELIZE, MONACO, 
+ 	1 2 3 4 5 6 
+
+1	B E L I Z E 
+2	M O N A C O 
+3	B E L G I A 
+4	B E L A U . 
+5	G A M B I A 
+
+Pakkusid sone: 'BELIZ' aga kahjuks selliste ei leidu :(
+Pakkusid sone: 'BELIZE' ja sa ei eksi
+Pakkusid sone: 'MONACO' ja sa ei eksi
+Pakkusid sone: 'BELGIA' ja sa ei eksi
+Pakkusid sone: 'BELA' aga kahjuks selliste ei leidu :(
+Pakkusid sone: 'BELAU' ja sa ei eksi
+Pakkusid sone: 'GAMBIA' ja sa ei eksi
+V6itsid m2ngu!!! :D
+Salvestust ei leitud, teen uue
+TÜRGI, MAROKO, MALI, TAI, KREEKA, JEEMEN, 
+ 	1 2 3 4 5 6 
+
+1	K R E E K A 
+2	M A L I A T 
+3	J E E M E N 
+4	T Ü R G I . 
+5	M A R O K O 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+OMAAN, HIINA, MALI, KUUBA, BAHAMA, UNGARI, 
+ 	1 2 3 4 5 6 
+
+1	O M A A N M 
+2	B A H A M A 
+3	K U U B A L 
+4	U N G A R I 
+5	H I I N A . 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+TŠAAD, BHUTAN, ŠVEITS, BELIZE, RWANDA, 
+ 	1 2 3 4 5 6 
+
+1	T Š A A D . 
+2	B E L I Z E 
+3	B H U T A N 
+4	R W A N D A 
+5	Š V E I T S 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+OMAAN, TÜRGI, MALI, FIDŽI, SAMOA, SOOME, 
+ 	1 2 3 4 5 6 
+
+1	T Ü R G I S 
+2	F I D Ž I O 
+3	O M A A N O 
+4	S A M O A M 
+5	M A L I . E 
+
+Pakkusid sone: 'TÜRGI' ja sa ei eksi
+Pakkusid sone: 'SOOME' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'OMAANO' aga kahjuks selliste ei leidu :(
+Pakkusid sone: 'OMAAN' ja sa ei eksi
+Pakkusid sone: 'SAMOA' ja sa ei eksi
+Pakkusid sone: 'MALI' ja sa ei eksi
+V6itsid m2ngu!!! :D
+Salvestust ei leitud, teen uue
+NORRA, NIGER, BIRMA, TAI, TAANI, SOOME, 
+ 	1 2 3 4 5 6 
+
+1	T A I B S N 
+2	A . . I O I 
+3	A . . R O G 
+4	N . R M M E 
+5	I A . A E R 
+
+J2tkan vana faili
+Pakkusid sone: '1;1;E;2;TA' aga kahjuks selliste ei leidu :(
+Pakkusid sone: '1;5;S;4;SOOM' aga kahjuks selliste ei leidu :(
+Pakkusid sone: '1;5;S;5;SOOME' ja sa ei eksi
+Salvestust ei leitud, teen uue
+GUYANA, LÄTI, COSTA, TAI, JEEMEN, FIDŽI, NEPAL, 
+ 	1 2 3 4 5 6 
+
+1	J E E M E N 
+2	F I D Ž I E 
+3	C O S T A P 
+4	G U Y A N A 
+5	L Ä T I . L 
+
+Pakkusid sone: 'JEEMEN' ja sa ei eksi
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+SONE, OTSI, 
+ 	1 2 3 4 5 6 
+
+1	O T S I . . 
+2	. . . O . . 
+3	. . . . N . 
+4	. . . . . E 
+5	. . . . . . 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+ISTO, SONE, OTSI, ENOS, 
+ 	1 2 3 4 
+
+1	O T S I 
+2	E N O S 
+3	. . N T 
+4	. . E O 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+ISTO, SONE, OTSI, ENOS, 
+ 	1 2 3 4 
+
+1	O T S I 
+2	E N O S 
+3	. . N T 
+4	. . E O 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+SONE, ISTO, OTSI, ENOS, 
+ 	1 2 3 4 
+
+1	I S T O 
+2	. O . T 
+3	E N O S 
+4	. E . I 
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+HOLLAND, MALDIIVID, KÜPROS, BENIN, PAAPUAUUSGUINEA, HAITI, BULGAARIA, SOMAALIA, SAMOA, TADŽIKISTAN, ECUADOR, LÄTI, VALGEVENE, COSTA, LIIBANON, BAHAMA, TAI, BARBADOS, MALTA, KIRIBATI, JAMAICA, AUSTRIA, GUINEA, INDIA, TOGO, 
+ 	01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 
+
+1	M  A  L  T  A  V  A  L  G  E  V  E  N  E  B  B  
+2	A  U  S  T  R  I  A  T  .  C  B  B  H  I  A  A  
+3	M  A  L  D  I  I  V  I  D  U  E  U  A  N  H  R  
+4	T  A  D  Ž  I  K  I  S  T  A  N  L  I  D  A  B  
+5	K  I  R  I  B  A  T  I  L  D  I  G  T  I  M  A  
+6	H  O  L  L  A  N  D  .  Ä  O  N  A  I  A  A  D  
+7	C  O  S  T  A  O  G  O  T  R  S  A  M  O  A  O  
+8	L  I  I  B  A  N  O  N  I  S  O  R  P  Ü  K  S  
+9	P  A  A  P  U  A  U  U  S  G  U  I  N  E  A  .  
+10	S  O  M  A  A  L  I  A  J  A  M  A  I  C  A  .  
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+ANGOLA, KENYA, BURKINAFASO, MAROKO, BURUNDI, GAMBIA, KATAR, SAMOA, PRANTSUSMAA, TADŽIKISTAN, LAOS, IISRAEL, SERBIA, LIBEERIA, ALBAANIA, BOLIIVIA, SURINAME, HONDURAS, NEPAL, GUINEA, INDIA, SAMBIA, COLOMBIA, TOGO, SLOVAKKIA, 
+ 	01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 
+
+1	A  N  G  O  L  A  K  E  N  Y  A  S  B  C  I  S  
+2	H  O  N  D  U  R  A  S  S  R  A  A  U  O  I  U  
+3	G  U  I  N  E  A  O  E  A  M  .  M  R  L  S  R  
+4	G  A  M  B  I  A  R  T  O  G  O  B  U  O  R  I  
+5	N  E  P  A  L  B  A  A  N  I  A  I  N  M  A  N  
+6	T  A  D  Ž  I  K  I  S  T  A  N  A  D  B  E  A  
+7	.  O  S  A  F  A  N  I  K  R  U  B  I  I  L  M  
+8	S  L  O  V  A  K  K  I  A  O  K  O  R  A  M  E  
+9	B  O  L  I  I  V  I  A  L  I  B  E  E  R  I  A  
+10	P  R  A  N  T  S  U  S  M  A  A  I  N  D  I  A  
+
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+HOLLAND, KENYA, BURKINAFASO, BELIZE, MONTENEGRO, FIDŽI, OMAAN, LIBEERIA, ANDORRA, TAI, AUSTRIA, GUINEA, BENIN, PAAPUAUUSGUINEA, POOLA, TAANI, MIKRONEESIA, LAOS, NAMIIBIA, NORRA, VENEZUELA, SURINAME, ETIOOPIA, NEPAL, BANGLADESH, 
+ 	01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 
+
+1	S  U  R  I  N  A  M  E  T  I  O  O  P  I  A  N  
+2	B  U  R  K  I  N  A  F  A  S  O  V  O  B  U  A  
+3	.  H  .  F  I  D  Ž  I  I  K  E  .  O  E  S  M  
+4	N  O  R  R  A  O  .  B  E  N  I  N  L  L  T  I  
+5	N  L  M  I  K  R  O  N  E  E  S  I  A  I  R  I  
+6	E  L  T  .  .  R  Y  Z  O  M  A  A  N  Z  I  B  
+7	P  A  A  P  U  A  U  U  S  G  U  I  N  E  A  I  
+8	A  N  A  H  S  E  D  A  L  G  N  A  B  .  .  A  
+9	L  D  N  .  L  I  B  E  E  R  I  A  L  A  O  S  
+10	.  .  I  A  M  O  N  T  E  N  E  G  R  O  .  .  
+
+Pakkusid sone: 'RK' aga kahjuks selliste ei leidu :(
+Pakkusid sone: 'BURKINAFASO' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: 'NORRA' ja sa ei eksi
+Pakkusid sone: '.H.' aga kahjuks selliste ei leidu :(
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'ID' aga kahjuks selliste ei leidu :(
+Pakkusid sone: '.F' aga kahjuks selliste ei leidu :(
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: 'FIDŽI' ja sa ei eksi
+Pakkusid sone: '7;9;E;3;SGU' aga kahjuks selliste ei leidu :(
+Pakkusid sone: '2;12;SW;9;VENEZUELA' ja sa ei eksi
+Pakkusid sone: '3;4;E;5;FIDŽI' ja sa ei eksi
+Pakkusid sone: '1;9;S;3;TAI' ja sa ei eksi
+Pakkusid sone: '1;9;S;3;TAI' ja sa ei eksi
+Pakkusid sone: '1;13;S;5;POOLA' ja sa ei eksi
+J2tkan vana faili
+Salvestust ei leitud, teen uue
+HOLLAND, SLOVEENIA, BELIZE, TŠIILI, UKRAINA, OMAAN, LÄTI, PANAMA, COSTA, LIBEERIA, MALI, TAI, AFGANISTAN, JORDAANIA, BURUNDI, BULGAARIA, MEHHIKO, ISLAND, LAOS, MAURITIUS, MALAWI, BAHAMA, EESTI, UNGARI, NEPAL, USBEKISTAN, 
+ 	01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 
+
+1	B  U  R  U  N  D  I  M  A  U  R  I  T  I  U  S  
+2	H  O  L  L  A  N  D  E  E  S  T  I  B  S  K  L  
+3	M  T  I  A  .  C  P  M  .  H  L  A  B  L  R  O  
+4	A  Š  B  U  O  O  A  A  .  Ä  H  E  I  A  A  V  
+5	L  I  E  N  B  S  N  L  T  A  K  I  .  N  I  E  
+6	A  I  E  G  E  T  A  I  M  I  .  .  K  D  N  E  
+7	W  L  R  A  L  A  M  A  S  N  A  A  M  O  A  N  
+8	I  I  I  R  I  N  A  T  S  I  N  A  G  F  A  I  
+9	.  .  A  I  Z  .  A  B  U  L  G  A  A  R  I  A  
+10	.  L  A  P  E  N  J  O  R  D  A  A  N  I  A  .  
+
+J2tkan vana faili

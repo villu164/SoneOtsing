@@ -44,7 +44,7 @@ class TextBox extends Group {
 		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	    if (this.string.equals(".")) {
 	    	String random_karakter = Character.toString(alphabet.charAt(r.nextInt(alphabet.length())));
-	    	//this.string = " ";
+	    	//this.string = "?";
 	    	this.string = random_karakter;
 	    }
 		this.text = new Text(this.string);

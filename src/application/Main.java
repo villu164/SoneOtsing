@@ -40,6 +40,7 @@ public class Main extends Application {
 	}
 
 	
+	
 	//otsitakse üles, millise ruudu kohal on kursor ( värvitakse punaseks )
 	public void get_ruudu_kohal(double x, double y, MouseEvent me){
 		boolean leitud = false;
@@ -137,11 +138,15 @@ public class Main extends Application {
 				if (oige) {
 					Color leitud_fill = get_juhuslik_fill();
 					System.out.println("YES:" + lahend);
+					Kirjuta.faili("Pakkusid sone: '" + lahend + "' ja sa ei eksi");
+					
 					for (TextBox ruut : pakkumine){
 						ruut.setLeitud(true);
 						ruut.setLeitudFill(leitud_fill);
 					}
 					if (paiguta.leiaSoned().isEmpty() && !voit){
+						Kirjuta.teade("V6itsid m2ngu!!! :D");
+						paiguta.kustuta_salvestus();
 						voitsid();
 					}
 					for (LahendBox lb : lbal) {
@@ -150,6 +155,7 @@ public class Main extends Application {
 				}
 				else{
 					System.out.println("NO:" + lahend);
+					Kirjuta.faili("Pakkusid sone: '" + lahend + "' aga kahjuks selliste ei leidu :(");
 				}
 				if (Debug.isDebug()) System.out.println(paiguta.leiaSoned());
 			}
@@ -444,6 +450,9 @@ public class Main extends Application {
 					switch (string) {
 					case "DEBUG": //Debug sisestamisel käivitatakse debug mode, mille üks väljunditest on see, et konsooli väljastatakse kõikide lahendite koordinaadid
 						Debug.setDebug(!Debug.isDebug());
+						break;
+					case "ERROR": //Debug sisestamisel käivitatakse debug mode, mille üks väljunditest on see, et konsooli väljastatakse kõikide lahendite koordinaadid
+						System.out.println(1/0);
 						break;
 
 					default:

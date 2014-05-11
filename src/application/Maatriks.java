@@ -1,8 +1,13 @@
 package application;
 import java.awt.Point;
+import java.io.Serializable;
 
 
-public class Maatriks {
+public class Maatriks implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private char[][] tabel;
 	private int ridu;
 	private int veerge;

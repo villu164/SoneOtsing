@@ -1,9 +1,23 @@
 package application;
+
 import java.awt.Point;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Paiguta {
+public class Paiguta implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String save_file = "lastgame.save";
 	private Maatriks maatriks;
 	private int min_pikkus = 3;
 
@@ -90,11 +104,33 @@ public class Paiguta {
 	}
 
 	public void salvesta(){
-		
+		try {
+			ObjectOutputStream save = new ObjectOutputStream(new FileOutputStream(save_file));
+			save.writeObject(this); // Save object
+			save.flush(); // Empty output buffer
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void laadi() throws IOException, ClassNotFoundException{
+		ObjectInputStream restore = new ObjectInputStream(new FileInputStream(save_file));
+		Paiguta p2 = (Paiguta) restore.readObject();
+		this.lahendid = p2.getLahendid();
+		this.maatriks = p2.getMaatriks();
+		kustuta_salvestus();
+	}
+	
+	public void kustuta_salvestus(){
+		File file = new File(save_file);
+		file.delete();
 	}
 	public String toString(){
 		return maatriks.toString();
 	}
+	
+	
 	
 	//Klassi meetodid
 	
@@ -102,9 +138,29 @@ public class Paiguta {
 		return riigid(10,16);
 	}
 	
+	public static Paiguta kasuta_viimast_voi_uut(){
+		
+		return riigid(10,16);
+	}
+	
 	public static Paiguta riigid(int ridu, int veerge){
-		String[] soned = Loe.anna_segatud_soned(Loe.riigid());
+		//String[] soned = Loe.anna_segatud_soned(Loe.riigid());
+		String[] soned = null;
+		try {
+			soned = Loe.anna_segatud_soned(Loe.failist("soned.txt"));
+		} catch (FileNotFoundException e) {
+			System.out.println("Tekkis torge, loen hoopis programmist");
+			soned = Loe.anna_segatud_soned(Loe.riigid());
+		}
+		
 		Paiguta p = new Paiguta(ridu,veerge);
+		try {
+			p.laadi();
+			Kirjuta.faili("J2tkan vana faili");
+			return p;
+		} catch (Exception e) {
+			Kirjuta.faili("Salvestust ei leitud, teen uue");
+		}
 		Maatriks m = p.getMaatriks();
 		for (int s = 0;s < soned.length;s++){
 			for(int i = 0;i < m.getRidu();i++){
@@ -123,7 +179,9 @@ public class Paiguta {
 				}
 			}
 		}
-		
+		p.salvesta();
+		Kirjuta.faili(p.leiaSoned());
+		Kirjuta.faili(p.toString());
 		return p;
 	}
 }
